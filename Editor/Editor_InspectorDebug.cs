@@ -4,7 +4,7 @@ using UnityEditor;
 
 public class Editor_InspectorDebug
 {
-    [MenuItem("Tools/Toggle Inspector Mode &d")] // Shortcut Alt + d
+    [MenuItem("Feto/Inspector/Toogle Debug Mode &d")] // Shortcut Alt + d
     static void ToggleInspectorDebug()
     {
         EditorWindow targetInspector = EditorWindow.mouseOverWindow; // "EditorWindow.focusedWindow" can be used instead

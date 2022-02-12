@@ -4,7 +4,7 @@ using UnityEditor;
 
 public class Editor_InspectorLock
 {
-    [MenuItem("Tools/Toggle Inspector Lock (shortcut) &q")] // Shortcut Alt + q
+    [MenuItem("Feto/Inspector/Toggle Inspector Lock &q")] // Shortcut Alt + q
     static void SelectLockableInspector()
     {
         EditorWindow inspectorToBeLocked = EditorWindow.mouseOverWindow; // "EditorWindow.focusedWindow" can be used instead
