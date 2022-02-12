@@ -8,7 +8,7 @@ public abstract class PoolableObject : MonoBehaviour
         this.pool = pool;
     }
 
-    private void OnDisable() {
+    protected virtual void OnDisable() {
         if (pool != null) {
             pool.addToPool(this);
         }
