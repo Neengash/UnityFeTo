@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Singleton <T> : MonoBehaviour where T : Component
 {
+    private static bool quitting = false;
     private static T _instance;
 
     public static T Instance {
         get{
-            if (_instance == null) {
+            if (_instance == null && !quitting) {
                 GameObject go = new GameObject();
                 go.name = typeof(T).Name; // Can remove if next sentence is uncommented
                 //go.hideFlags = HideFlags.HideAndDontSave; // Hide in hierarchy
@@ -29,16 +30,21 @@ public class Singleton <T> : MonoBehaviour where T : Component
             _instance = null;
         }
     }
+
+    protected void OnApplicationQuit() {
+        quitting = true;
+    }
 }
 
 
 public class SingletonPersistent <T> : MonoBehaviour where T : Component
 {
+    private static bool quitting = false;
     private static T _instance;
 
     public static T Instance {
         get{
-            if (_instance == null) {
+            if (_instance == null && !quitting) {
                 GameObject go = new GameObject();
                 go.name = typeof(T).Name; // Can remove if next sentence is uncommented
                 //go.hideFlags = HideFlags.HideAndDontSave; // Hide in hierarchy
@@ -61,5 +67,9 @@ public class SingletonPersistent <T> : MonoBehaviour where T : Component
         if (_instance == this) {
             _instance = null;
         }
+    }
+
+    protected void OnApplicationQuit() {
+        quitting = true;
     }
 }
