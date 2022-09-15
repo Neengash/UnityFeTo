@@ -13,7 +13,7 @@ jobs:
         fetch-depth: 0
     - name: Split Feto branch
       run: |
-        git subtree split -P "#PKG_ROOT" -b FeTo
+        git subtree split -P "$PKG_ROOT" -b FeTo
         git push -u origin FeTo
       env:
         PKG_ROOT: Assets/FeTo
