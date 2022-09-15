@@ -2,7 +2,7 @@ name: FeTo Release
 on:
   push:
     branches:
-      - master
+    - master
 jobs:
   SplitFeTo:
     name: Split Feto branch
