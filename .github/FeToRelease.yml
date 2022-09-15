@@ -1,18 +1,17 @@
-name: Manual workflow
+name: FeTo Release
 on:
   push:
     branches:
       - master
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   SplitFeTo:
-    name: split Feto branch
+    name: Split Feto branch
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: split Feto branch
+    - name: Split Feto branch
       run: |
         git subtree split -P "#PKG_ROOT" -b FeTo
         git push -u origin FeTo
