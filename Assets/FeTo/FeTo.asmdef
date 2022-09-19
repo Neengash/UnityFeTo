@@ -1,3 +1,4 @@
 {
-	"name": "FeTo"
+	"name": "FeTo",
+	"references": ["Unity.TextMeshPro"]
 }
