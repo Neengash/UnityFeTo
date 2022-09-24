@@ -1,6 +1,7 @@
 using UnityEngine;
 
 namespace Feto {
+    [DefaultExecutionOrder(-1)]
     public class Singleton <T> : MonoBehaviour where T : Component
     {
         private static bool quitting = false;
@@ -38,6 +39,7 @@ namespace Feto {
     }
 
 
+    [DefaultExecutionOrder(-1)]
     public class SingletonPersistent <T> : MonoBehaviour where T : Component
     {
         private static bool quitting = false;
