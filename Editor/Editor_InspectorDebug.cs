@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using UnityEditor;
 
+#if UNITY_EDITOR
 public class Editor_InspectorDebug
 {
     [MenuItem("Feto/Inspector/Toogle Debug Mode &d")] // Shortcut Alt + d
@@ -23,3 +24,4 @@ public class Editor_InspectorDebug
         }
     }
 }
+#endif
