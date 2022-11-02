@@ -28,7 +28,6 @@ namespace Feto {
         }
 
         protected virtual void OnDestroy() {
-            quitting = true;
             if (_instance == this) {
                 _instance = null;
             }
@@ -68,7 +67,6 @@ namespace Feto {
         }
 
         protected virtual void OnDestroy() {
-            quitting = true;
             if (_instance == this) {
                 _instance = null;
             }
