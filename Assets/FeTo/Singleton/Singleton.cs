@@ -11,8 +11,7 @@ namespace Feto {
             get{
                 if (_instance == null && !quitting) {
                     GameObject go = new GameObject();
-                    go.name = typeof(T).Name; // Can remove if next sentence is uncommented
-                    //go.hideFlags = HideFlags.HideAndDontSave; // Hide in hierarchy
+                    go.name = typeof(T).Name + "_Generated"; 
                     _instance = go.AddComponent<T>();
                 }
                 return _instance;
@@ -28,7 +27,6 @@ namespace Feto {
         }
 
         protected virtual void OnDestroy() {
-            quitting = true;
             if (_instance == this) {
                 _instance = null;
             }
@@ -50,8 +48,7 @@ namespace Feto {
             get{
                 if (_instance == null && !quitting) {
                     GameObject go = new GameObject();
-                    go.name = typeof(T).Name; // Can remove if next sentence is uncommented
-                    //go.hideFlags = HideFlags.HideAndDontSave; // Hide in hierarchy
+                    go.name = typeof(T).Name + "_Generated";
                     _instance = go.AddComponent<T>();
                 }
                 return _instance;
@@ -68,7 +65,6 @@ namespace Feto {
         }
 
         protected virtual void OnDestroy() {
-            quitting = true;
             if (_instance == this) {
                 _instance = null;
             }
