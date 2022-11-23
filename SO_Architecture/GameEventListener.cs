@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace FeTo.soArchitecture
+namespace FeTo.SoArchitecture
 {
     public class GameEventListener : MonoBehaviour
     {
