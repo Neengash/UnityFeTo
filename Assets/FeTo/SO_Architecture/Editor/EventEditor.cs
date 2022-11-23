@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace FeTo.soArchitecture
+namespace FeTo.SoArchitecture
 {
     [CustomEditor(typeof(GameEvent), editorForChildClasses: true)]
     public class EventEditor : Editor

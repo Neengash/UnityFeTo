@@ -1,6 +1,6 @@
 using System;
 
-namespace FeTo.soArchitecture
+namespace FeTo.SoArchitecture
 {
     [Serializable]
     public class FloatReference

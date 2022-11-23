@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace FeTo.soArchitecture
+namespace FeTo.SoArchitecture
 {
     [CustomPropertyDrawer(typeof(FloatReference))]
     public class FloatReferenceDrawer : PropertyDrawer
