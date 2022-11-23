@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Feto.ObjectPool
+namespace FeTo.ObjectPool
 {
     public class ObjectPool : MonoBehaviour
     {
