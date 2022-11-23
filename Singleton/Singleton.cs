@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace Feto {
+namespace FeTo.Singleton
+{
     [DefaultExecutionOrder(-1)]
     public class Singleton <T> : MonoBehaviour where T : Component
     {
