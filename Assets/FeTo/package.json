@@ -6,6 +6,11 @@
     "documentationUrl": "https://github.com/Neengash/UnityFeTo/",
     "changelogUrl": "https://github.com/Neengash/UnityFeTo/",
     "licensesUrl": "https://github.com/Neengash/UnityFeTo/blob/master/LICENSE",
+    "keywords": [
+        "Design",
+        "Pattern",
+        "FeTo"
+    ],
     "author": {
         "name": "Pep 'Neengash' Mañas",
         "email": "pepmanas93@gmail.com",
