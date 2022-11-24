@@ -1,6 +1,14 @@
 {
     "name": "com.neengash.unityfeto",
     "displayName": "FeTo",
-    "version": "1.2.1",
-    "description": "A set of ready to use unity scripts to ease out the proces of making games"
+    "version": "1.3.0",
+    "description": "A set of ready to use unity scripts to ease out the proces of making games",
+    "author": {
+        "name": "Pep 'Neengash' Mañas",
+        "email": "pepmanas93@gmail.com",
+        "url": "https://neengash.github.io/"
+    },
+    "documentationUrl": "https://github.com/Neengash/UnityFeTo/",
+    "changelogUrl": "https://github.com/Neengash/UnityFeTo/",
+    "license": "https://github.com/Neengash/UnityFeTo/blob/master/LICENSE"
 }
