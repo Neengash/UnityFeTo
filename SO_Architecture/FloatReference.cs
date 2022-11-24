@@ -23,5 +23,10 @@ namespace FeTo.SoArchitecture
         public static implicit operator float(FloatReference reference) {
             return reference.Value;
         }
+        
+        public static implicit operator String(FloatReference reference) {
+            return reference.Value.ToString();
+        }
+
     }
 }
