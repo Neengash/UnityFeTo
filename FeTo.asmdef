@@ -1,4 +1,14 @@
 {
-	"name": "FeTo",
-	"references": ["Unity.TextMeshPro"]
+    "name": "FeTo",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
