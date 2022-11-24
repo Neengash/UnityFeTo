@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FeTo.SoArchitecture
+namespace FeTo.SOArchitecture
 {
     public abstract class RuntimeSet<T> : ScriptableObject
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace FeTo.SoArchitecture
+namespace FeTo.SOArchitecture
 {
     [CustomPropertyDrawer(typeof(StringReference))]
     public class StringReferenceDrawer : PropertyDrawer

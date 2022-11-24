@@ -1,6 +1,6 @@
 using System;
 
-namespace FeTo.SoArchitecture
+namespace FeTo.SOArchitecture
 {
     [Serializable]
     public class StringReference

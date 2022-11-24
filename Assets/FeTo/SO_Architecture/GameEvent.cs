@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FeTo.SoArchitecture
+namespace FeTo.SOArchitecture
 {
     [CreateAssetMenu(fileName = "GameEvent", menuName = "FeTo/SO_Architecture/GameEvent", order = 2)]
     public class GameEvent : ScriptableObject

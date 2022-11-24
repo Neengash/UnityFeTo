@@ -6,27 +6,56 @@ https://github.com/roboryantron/Unite2017
 You can find the basic classes needed to build your game using the scriptable object architecture.  
 Allowing for a decoupled, singleton free environment.
 
-## Scriptable Object - Variables
+_Keep in mind that in order to use the following classes in your scripts you should import FeTo.SOArchitecture_
 
-Those are scriptable objects which value is just a float or string value.  
-Use them when you want some data to be available through multiple classes 
+```c#
+using FeTo.SOArchitecture;
+```
+
+## Scriptable Variables and References
+
+Those two utilities ScriptableVariable and ScriptableReferenes, cover float and string types. They can be used to share information of given types through multiple scripts without any need of hard coupling.
+
+### Variables
+
+Those are scriptable objects which content is just a float or string value.  
+They should be used when you want to change the value of the variable.
 
 > Create > FeTo > SO_Architecture > FloatVariable  
 > Create > FeTo > SO_Architecture > StringVariable
 
-On the component you want to access the data you will need a reference to a FloatVariable or StringVariable and then reference the given scriptable object through the inspector
+On the component you want to use the data you will need a reference to a FloatVariable or StringVariable and then reference the given scriptable object through the inspector.
 
 ``` c#
 [SerializedField] FloatVariable floatExample;
 [SerializedField] StringVariable stringExample;
 ```
 
-### Bonus: Float Reference
+To change or set the values of the FloatVariables it is advised to use the methods provided to do so:
 
-This is an intermediate layer for the float variable scriptable object which allows you to use either a constant value or a scriptable object. It's intention is to replace public (or serialized) float variables, so that through inspector a designer can decide whether a const value or scriptable object variable will be used.
+``` c# 
+public void SetValue(float value);
+public void SetValue(FloatVariable value);
+public void ApplyChange(float amount);
+public void ApplyChange(FloatVariable amount);
+```
+
+Keep in mind that those scripts that modify the value of a FloatVariable or StringVariable should set it's initial value every time the game is played (in the editor), because otherwise the scriptable object will preserve the data from previous runs.
+
+### References
+
+You can also find FloatReference and StringReference.  
+Those two classes are meant to be used by those scripts that only want con read the data but not change it.  
+Those two classes allow to link either a FloatVariable / StringVariable or a constant value, for those places where there's no need take the data into an scriptable object for other components to use.
+
+They can be used in code as if they were variables of the float and string type respectively
 
 ``` c#
 [SerializedField] FloatReference floatExample;
+[SerializedField] StringReference stringExample;
+
+float num = floatExample + 5f;
+string text = stringExample + "some text";
 ```
 
 ## Scriptable Object - Runtime Sets
