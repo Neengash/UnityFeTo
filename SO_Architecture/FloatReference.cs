@@ -1,6 +1,6 @@
 using System;
 
-namespace FeTo.SoArchitecture
+namespace FeTo.SOArchitecture
 {
     [Serializable]
     public class FloatReference
@@ -22,10 +22,6 @@ namespace FeTo.SoArchitecture
 
         public static implicit operator float(FloatReference reference) {
             return reference.Value;
-        }
-        
-        public static implicit operator string(FloatReference reference) {
-            return reference.Value.ToString();
         }
 
         public override string ToString() => Value.ToString();

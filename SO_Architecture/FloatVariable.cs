@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FeTo.SoArchitecture
+namespace FeTo.SOArchitecture
 {
     [CreateAssetMenu(fileName = "FloatVariable", menuName = "FeTo/SO_Architecture/FloatVariable", order = 0)]
     public class FloatVariable : ScriptableObject

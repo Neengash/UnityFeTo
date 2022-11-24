@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FeTo.SoArchitecture
+namespace FeTo.SOArchitecture
 {
     [CreateAssetMenu(fileName = "StringVariable", menuName = "FeTo/SO_Architecture/StringVariable", order = 1)]
     public class StringVariable : ScriptableObject
