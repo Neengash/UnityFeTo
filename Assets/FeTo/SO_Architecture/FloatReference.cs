@@ -24,9 +24,11 @@ namespace FeTo.SoArchitecture
             return reference.Value;
         }
         
-        public static implicit operator String(FloatReference reference) {
+        public static implicit operator string(FloatReference reference) {
             return reference.Value.ToString();
         }
+
+        public override string ToString() => Value.ToString();
 
     }
 }
