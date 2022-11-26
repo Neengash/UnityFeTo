@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace Feto {
+namespace FeTo.ObjectPool
+{
     public abstract class PoolableObject : MonoBehaviour
     {
         protected ObjectPool pool;

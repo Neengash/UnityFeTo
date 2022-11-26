@@ -1,9 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Feto {
+namespace FeTo.ObjectPool
+{
     public class ObjectPool : MonoBehaviour
     {
         [SerializeField, Tooltip("Throw exception when calling GetNext of an empty pool")]

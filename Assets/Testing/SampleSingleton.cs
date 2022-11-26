@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Feto;
+using FeTo.Singleton;
 
 public class SampleSingleton : Singleton<SampleSingleton>
 {
