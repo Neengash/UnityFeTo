@@ -14,21 +14,30 @@ using FeTo.SOArchitecture;
 
 ## Scriptable Variables and References
 
-Those two utilities ScriptableVariable and ScriptableReferenes, cover float and string types. They can be used to share information of given types through multiple scripts without any need of hard coupling.
+Those two utilities ScriptableVariable and ScriptableReferenes, cover float, string and bool types. They can be used to share information of given types through multiple scripts without any need of hard coupling.
 
 ### Variables
 
-Those are scriptable objects which content is just a float or string value.  
+Those are scriptable objects which content is just a float, string or bool value.  
 They should be used when you want to change the value of the variable.
 
 > Create > FeTo > SO_Architecture > FloatVariable  
 > Create > FeTo > SO_Architecture > StringVariable
+> Create > FeTo > SO_Architecture > BoolVariable
 
-On the component you want to use the data you will need a reference to a FloatVariable or StringVariable and then reference the given scriptable object through the inspector.
+On the component you want to use the data you will need a reference to a FloatVariable, StringVariable or BoolVariable and then reference the given scriptable object through the inspector.
 
 ``` c#
 [SerializedField] FloatVariable floatExample;
 [SerializedField] StringVariable stringExample;
+[SerializedField] BoolVariable boolExample;
+```
+
+To access or change data of a StringVariable or BoolVariable you have to access it's parameter "Value".
+
+``` c#
+stringExample.Value = "foo";
+boolExample.Value = true;
 ```
 
 To change or set the values of the FloatVariables it is advised to use the methods provided to do so:
@@ -44,18 +53,20 @@ Keep in mind that those scripts that modify the value of a FloatVariable or Stri
 
 ### References
 
-You can also find FloatReference and StringReference.  
-Those two classes are meant to be used by those scripts that only want con read the data but not change it.  
-Those two classes allow to link either a FloatVariable / StringVariable or a constant value, for those places where there's no need take the data into an scriptable object for other components to use.
+You can also find FloatReference, StringReference and BoolReference.  
+Those classes are meant to be used by those scripts that only want con read the data but not change it.  
+They allow the user to link either a [*]Variable or a constant value, the last one being usefull for those places where there's no need take the data into an scriptable object for other components to use.
 
-They can be used in code as if they were variables of the float and string type respectively
+They can be used in code as if they were variables of the referenced type
 
 ``` c#
 [SerializedField] FloatReference floatExample;
 [SerializedField] StringReference stringExample;
+[SerializedField] BoolReference boolReference;
 
 float num = floatExample + 5f;
 string text = stringExample + "some text";
+if (boolReference) {}
 ```
 
 ## Scriptable Object - Runtime Sets
