@@ -11,11 +11,11 @@ namespace FeTo.SOArchitecture
         [Tooltip("Response to invoke when Event is raised.")]
         public UnityEvent Response;
 
-        private void OnEnable() {
+        protected void OnEnable() {
             Event.RegisterListener(this);
         }
 
-        private void OnDisable() {
+        protected void OnDisable() {
             Event.UnregisterListener(this);
         }
 

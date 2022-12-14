@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [CreateAssetMenu(fileName = "GameEvent", menuName = "FeTo/SO_Architecture/GameEvent", order = 2)]
+    [CreateAssetMenu(fileName = "GameEvent", menuName = "FeTo/SO_Architecture/GameEvent")]
     public class GameEvent : ScriptableObject
     {
         /// <summary>
