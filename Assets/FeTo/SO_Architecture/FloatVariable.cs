@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [CreateAssetMenu(fileName = "FloatVariable", menuName = "FeTo/SO_Architecture/FloatVariable", order = 0)]
+    [CreateAssetMenu(fileName = "FloatVariable", menuName = "FeTo/SO_Architecture/FloatVariable")]
     public class FloatVariable : ScriptableObject
     {
 #if UNITY_EDITOR
