@@ -15,6 +15,6 @@ public class IntReferenceTest : MonoBehaviour
 
     public void IncreaseValue() {
         intVar.ApplyChange(1);
-        Debug.Log("New Value " + intVar.Value);
+        Debug.Log("New Value " + intVar.GetValue());
     }
 }

@@ -15,7 +15,7 @@ public class BoolReferenceTest : MonoBehaviour
             Debug.Log("Reference is false");
         }
 
-        if (variable.Value) {
+        if (variable.GetValue()) {
             Debug.Log("Variable is true");
         } else {
             Debug.Log("Variable is false");

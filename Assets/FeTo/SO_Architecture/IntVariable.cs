@@ -6,11 +6,11 @@ namespace FeTo.SOArchitecture
     public class IntVariable : ScriptableVariable<int>
     {
         public override void ApplyChange(int amount) {
-            Value += amount;
+            value += amount;
         }
 
         public override void ApplyChange(ScriptableVariable<int> amount) {
-            Value += amount.Value;
+            value += amount.GetValue();
         }
     }
 }

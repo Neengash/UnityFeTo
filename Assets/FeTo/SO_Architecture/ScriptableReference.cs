@@ -19,7 +19,7 @@ namespace FeTo.SOArchitecture
         }
 
         public T Value {
-            get { return UseConstant ? ConstantValue : Variable.Value; }
+            get { return UseConstant ? ConstantValue : Variable.GetValue(); }
         }
 
         public static implicit operator T (ScriptableReference<T> reference) {
