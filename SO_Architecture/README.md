@@ -22,8 +22,9 @@ Those are scriptable objects which content is just a float, string or bool value
 They should be used when you want to change the value of the variable.
 
 > Create > FeTo > SO_Architecture > FloatVariable  
-> Create > FeTo > SO_Architecture > StringVariable
-> Create > FeTo > SO_Architecture > BoolVariable
+> Create > FeTo > SO_Architecture > StringVariable  
+> Create > FeTo > SO_Architecture > BoolVariable  
+> Create > FeTo > SO_Architecture > IntVariable  
 
 On the component you want to use the data you will need a reference to a FloatVariable, StringVariable or BoolVariable and then reference the given scriptable object through the inspector.
 
@@ -31,6 +32,7 @@ On the component you want to use the data you will need a reference to a FloatVa
 [SerializedField] FloatVariable floatExample;
 [SerializedField] StringVariable stringExample;
 [SerializedField] BoolVariable boolExample;
+[SerializedField] IntVariable intVariable;
 ```
 
 To access or change data of a StringVariable or BoolVariable you have to access it's parameter "Value".
@@ -40,22 +42,27 @@ stringExample.Value = "foo";
 boolExample.Value = true;
 ```
 
-To change or set the values of the FloatVariables it is advised to use the methods provided to do so:
+To change or set the values of the FloatVariables or IntVariables it is advised to use the methods provided to do so:
 
 ``` c# 
 public void SetValue(float value);
 public void SetValue(FloatVariable value);
 public void ApplyChange(float amount);
 public void ApplyChange(FloatVariable amount);
+
+public void SetValue(int value);
+public void SetValue(IntVariable value);
+public void ApplyChange(int amount);
+public void ApplyChange(IntVariable amount);
 ```
 
-Keep in mind that those scripts that modify the value of a FloatVariable or StringVariable should set it's initial value every time the game is played (in the editor), because otherwise the scriptable object will preserve the data from previous runs.
+Keep in mind that those scripts that modify the value of scriptableVariables should set it's initial value every time the game is played (in the editor), because otherwise the scriptable object will preserve the data from previous runs.
 
 ### References
 
-You can also find FloatReference, StringReference and BoolReference.  
+You can also find FloatReference, StringReference, BoolReference and IntReference.  
 Those classes are meant to be used by those scripts that only want con read the data but not change it.  
-They allow the user to link either a [*]Variable or a constant value, the last one being usefull for those places where there's no need take the data into an scriptable object for other components to use.
+They allow the user to link either a scriptableVariable or a constant value, the last one being usefull for those places where there's no need take the data into an scriptable object for other components to use.
 
 They can be used in code as if they were variables of the referenced type
 
@@ -63,10 +70,12 @@ They can be used in code as if they were variables of the referenced type
 [SerializedField] FloatReference floatExample;
 [SerializedField] StringReference stringExample;
 [SerializedField] BoolReference boolReference;
+[SerializedField] IntReference intReference;
 
 float num = floatExample + 5f;
 string text = stringExample + "some text";
 if (boolReference) {}
+int anotherNum = intReferece * 2;
 ```
 
 ## Scriptable Object - Runtime Sets
