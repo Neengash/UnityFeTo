@@ -6,11 +6,11 @@ namespace FeTo.SOArchitecture
     public class FloatVariable : ScriptableVariable<float>
     {
         public override void ApplyChange(float amount) {
-            Value += amount;
+            value += amount;
         }
 
         public override void ApplyChange(ScriptableVariable<float> amount) {
-            Value += amount.Value;
+            value += amount.GetValue();
         }
     }
 }

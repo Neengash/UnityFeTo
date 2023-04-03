@@ -12,10 +12,15 @@ namespace FeTo.SOArchitecture
         public string DeveloperDescription = "";
 #endif
 
-        public T Value;
+        [SerializeField]
+        protected T value;
 
-        public void SetValue(T value) => Value = value;
-        public void SetValue(ScriptableVariable<T> variable) => Value = variable.Value;
+        public T GetValue() {
+            return value;
+        }
+
+        public void SetValue(T value) => this.value = value;
+        public void SetValue(ScriptableVariable<T> variable) => this.value = variable.GetValue();
 
         public abstract void ApplyChange(T value);
         public abstract void ApplyChange(ScriptableVariable<T> variable);
