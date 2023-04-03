@@ -3,14 +3,14 @@ using UnityEngine;
 namespace FeTo.SOArchitecture
 {
     [CreateAssetMenu(fileName = "StringVariable", menuName = "FeTo/SO_Architecture/StringVariable")]
-    public class StringVariable : ScriptableObject
+    public class StringVariable : ScriptableVariable<string>
     {
-        [SerializeField]
-        private string value = "";
+        public override void ApplyChange(string value) {
+            throw new System.NotImplementedException();
+        }
 
-        public string Value {
-            get { return value; }
-            set { this.value = value; }
+        public override void ApplyChange(ScriptableVariable<string> variable) {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -3,27 +3,13 @@ using UnityEngine;
 namespace FeTo.SOArchitecture
 {
     [CreateAssetMenu(fileName = "FloatVariable", menuName = "FeTo/SO_Architecture/FloatVariable")]
-    public class FloatVariable : ScriptableObject
+    public class FloatVariable : ScriptableVariable<float>
     {
-#if UNITY_EDITOR
-        [Multiline]
-        public string DeveloperDescription = "";
-#endif
-        public float Value;
-
-        public void SetValue(float value) {
-            Value = value;
-        }
-
-        public void SetValue(FloatVariable value) {
-            Value = value.Value;
-        }
-
-        public void ApplyChange(float amount) {
+        public override void ApplyChange(float amount) {
             Value += amount;
         }
 
-        public void ApplyChange(FloatVariable amount) {
+        public override void ApplyChange(ScriptableVariable<float> amount) {
             Value += amount.Value;
         }
     }
