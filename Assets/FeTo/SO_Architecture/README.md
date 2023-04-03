@@ -14,19 +14,21 @@ using FeTo.SOArchitecture;
 
 ## Scriptable Variables and References
 
-Those two utilities ScriptableVariable and ScriptableReferenes, cover float, string and bool types. They can be used to share information of given types through multiple scripts without any need of hard coupling.
+Those two utilities: ScriptableVariable and ScriptableReferenes, cover int, float, string and bool types.  
+They can be used to share information of given types through multiple scripts without any need of hard coupling.
 
 ### Variables
 
-Those are scriptable objects which content is just a float, string or bool value.  
-They should be used when you want to change the value of the variable.
+Those are scriptable objects which content is just a value (of types int, float, string or bool).  
+They should be used when you want to **change** the value of the variable.
 
 > Create > FeTo > SO_Architecture > FloatVariable  
 > Create > FeTo > SO_Architecture > StringVariable  
 > Create > FeTo > SO_Architecture > BoolVariable  
 > Create > FeTo > SO_Architecture > IntVariable  
 
-On the component you want to use the data you will need a reference to a FloatVariable, StringVariable or BoolVariable and then reference the given scriptable object through the inspector.
+On the component you want to use the data you will need a reference to an IntVariable, FloatVariable, StringVariable or BoolVariable and then reference the given scriptable object through the inspector.  
+Warning: Due to some limitations, on the inspector you will see `ScriptableVariable'1` as the type of the object, but it will only accept the one specified in the code.
 
 ``` c#
 [SerializedField] FloatVariable floatExample;
@@ -35,34 +37,25 @@ On the component you want to use the data you will need a reference to a FloatVa
 [SerializedField] IntVariable intVariable;
 ```
 
-To access or change data of a StringVariable or BoolVariable you have to access it's parameter "Value".
+ScriptableVariables should be worked with by using its methods:
 
-``` c#
-stringExample.Value = "foo";
-boolExample.Value = true;
+```C#
+public T GetValue();
+public void SetValue(T value);
+public void SetValue(ScriptableVariable<T> value);
+public void ApplyChange(T amount);
+public void ApplyChange(ScriptableVariable<T> amount);
 ```
 
-To change or set the values of the FloatVariables or IntVariables it is advised to use the methods provided to do so:
+Keep in mind some ScriptableVariable types (such as string or bool) might not implement the ApplyChange method.
 
-``` c# 
-public void SetValue(float value);
-public void SetValue(FloatVariable value);
-public void ApplyChange(float amount);
-public void ApplyChange(FloatVariable amount);
-
-public void SetValue(int value);
-public void SetValue(IntVariable value);
-public void ApplyChange(int amount);
-public void ApplyChange(IntVariable amount);
-```
-
-Keep in mind that those scripts that modify the value of scriptableVariables should set it's initial value every time the game is played (in the editor), because otherwise the scriptable object will preserve the data from previous runs.
+Keep in mind that scripts that modify the value of scriptableVariables should set it's initial value every time the game is played (in the editor), because **on the editor** the scriptable object will preserve the data from previous runs.
 
 ### References
 
-You can also find FloatReference, StringReference, BoolReference and IntReference.  
-Those classes are meant to be used by those scripts that only want con read the data but not change it.  
-They allow the user to link either a scriptableVariable or a constant value, the last one being usefull for those places where there's no need take the data into an scriptable object for other components to use.
+You can also find the ScriptableReference class, those are NOT scriptableObjects.  
+Those classes are meant to be used by those scripts that only want to **read** the data but not change it.  
+They allow the user to link either a ScriptableVariable or a constant value, the last one being usefull for those places where there's no need take the data into an scriptable object for other components to use.
 
 They can be used in code as if they were variables of the referenced type
 
@@ -76,6 +69,24 @@ float num = floatExample + 5f;
 string text = stringExample + "some text";
 if (boolReference) {}
 int anotherNum = intReferece * 2;
+```
+
+### Make your own types
+
+If you find yourself in need of a greater range of types for ScriptableVariables and References, you can always define your own types:
+
+```C#
+[Serializable]
+public class XXReference : ScriptableReference<XX> { }
+```
+
+```C#
+[CreateAssetMenu(fileName = "XXVariable", menuName = "MenuName")]
+public class XXVariable : ScriptableVariable<XX>
+{
+    public override void ApplyChange(XX amount) { /* Implement */ }
+    public override void ApplyChange(ScriptableVariable<XX> amount) { /* Implement */ }
+}
 ```
 
 ## Scriptable Object - Runtime Sets
