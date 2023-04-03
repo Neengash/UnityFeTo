@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture#scriptable-variables-and-references")]
     public abstract class ScriptableVariable<T> : ScriptableObject
     {
 #if UNITY_EDITOR
