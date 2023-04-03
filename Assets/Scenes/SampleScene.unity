@@ -364,7 +364,7 @@ MonoBehaviour:
   boolRef:
     UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 11400000, guid: e68dfbe37bac5a848b72896ee2cdc248, type: 2}
+    Variable: {fileID: 0}
   variable: {fileID: 11400000, guid: e68dfbe37bac5a848b72896ee2cdc248, type: 2}
 --- !u!114 &1808705728
 MonoBehaviour:
@@ -407,3 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intVar: {fileID: 11400000, guid: 414ceec3daad104478f59dfcba353310, type: 2}
+  intRef:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}

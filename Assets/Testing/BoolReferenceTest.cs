@@ -3,7 +3,6 @@ using FeTo.SOArchitecture;
 
 public class BoolReferenceTest : MonoBehaviour
 {
-
     public BoolReference boolRef;
 
     public BoolVariable variable;
