@@ -312,6 +312,8 @@ GameObject:
   - component: {fileID: 1808705726}
   - component: {fileID: 1808705725}
   - component: {fileID: 1808705727}
+  - component: {fileID: 1808705729}
+  - component: {fileID: 1808705728}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -364,3 +366,44 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: e68dfbe37bac5a848b72896ee2cdc248, type: 2}
   variable: {fileID: 11400000, guid: e68dfbe37bac5a848b72896ee2cdc248, type: 2}
+--- !u!114 &1808705728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808705724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: acdea162a348124418289d4d98174028, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1808705729}
+        m_TargetAssemblyTypeName: IntReferenceTest, Assembly-CSharp
+        m_MethodName: IncreaseValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1808705729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808705724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297ba1059cb2dd94dad542dcd7e09a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intVar: {fileID: 11400000, guid: 414ceec3daad104478f59dfcba353310, type: 2}
