@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [Serializable]
     [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture#scriptable-variables-and-references")]
     public abstract class ScriptableReference<T>
     {
