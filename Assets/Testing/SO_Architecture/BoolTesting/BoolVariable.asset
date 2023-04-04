@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb8d0ad09f6a324289e81ee0dc72e84, type: 3}
-  m_Name: IntVariable
+  m_Script: {fileID: 11500000, guid: 78fc8c6d16864d04eb4c54c2f80f1042, type: 3}
+  m_Name: BoolVariable
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: 0
+  value: 0

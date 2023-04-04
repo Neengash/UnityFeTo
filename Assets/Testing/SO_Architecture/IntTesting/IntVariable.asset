@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5c35d4fb1cae1646bee127c1f1eb298, type: 3}
-  m_Name: TestGameEvent
+  m_Script: {fileID: 11500000, guid: 4bb8d0ad09f6a324289e81ee0dc72e84, type: 3}
+  m_Name: IntVariable
   m_EditorClassIdentifier: 
+  DeveloperDescription: 
+  value: 6
