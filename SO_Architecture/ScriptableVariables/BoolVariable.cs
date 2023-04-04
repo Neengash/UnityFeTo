@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [CreateAssetMenu(fileName = "BoolVariable", menuName = "FeTo/SO_Architecture/BoolVariable")]
+    [CreateAssetMenu(fileName = "BoolVariable", menuName = "FeTo/SO_Architecture/BoolVariable", order = 20)]
     public class BoolVariable : ScriptableVariable<bool>
     {
         public override void ApplyChange(bool value) {

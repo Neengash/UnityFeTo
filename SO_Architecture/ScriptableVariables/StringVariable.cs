@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [CreateAssetMenu(fileName = "StringVariable", menuName = "FeTo/SO_Architecture/StringVariable")]
+    [CreateAssetMenu(fileName = "StringVariable", menuName = "FeTo/SO_Architecture/StringVariable", order = 23)]
     public class StringVariable : ScriptableVariable<string>
     {
         public override void ApplyChange(string value) {

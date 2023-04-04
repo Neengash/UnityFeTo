@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [CustomEditor(typeof(GameEvent), editorForChildClasses: true)]
+    [CustomEditor(typeof(GameEvent))]
     public class EventEditor : Editor
     {
         public override void OnInspectorGUI() {

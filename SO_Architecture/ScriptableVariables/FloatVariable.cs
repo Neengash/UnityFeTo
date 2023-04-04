@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [CreateAssetMenu(fileName = "FloatVariable", menuName = "FeTo/SO_Architecture/FloatVariable")]
+    [CreateAssetMenu(fileName = "FloatVariable", menuName = "FeTo/SO_Architecture/FloatVariable", order = 22)]
     public class FloatVariable : ScriptableVariable<float>
     {
         public override void ApplyChange(float amount) {
