@@ -4,8 +4,12 @@ A set of ready to use unity scripts to ease out the process of making games (eve
 The different tools are grouped by concept in different folders.
 In each folder you can find a new Readme file describing the use the specific tool.
 
-On Unity Package Manager chose: "Add package from git URL"
+On Unity Package Manager chose: "Add package from git URL"  
 The route should be : "https://github.com/Neengash/UnityFeTo.git#FeTo"
+
+If you want an specific version of FeTo you can instead use tags:  
+The route should be : "https://github.com/Neengash/UnityFeTo.git?path=/Assets/FeTo#vX.X.X"
+
 
 ## Tools included
 
