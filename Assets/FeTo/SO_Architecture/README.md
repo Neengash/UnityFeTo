@@ -12,6 +12,8 @@ _Keep in mind that in order to use the following classes in your scripts you sho
 using FeTo.SOArchitecture;
 ```
 
+---
+
 ## Scriptable Variables and References
 
 Those two utilities: ScriptableVariable and ScriptableReferenes, cover int, float, string and bool types.  
@@ -89,6 +91,8 @@ public class XXVariable : ScriptableVariable<XX>
 }
 ```
 
+---
+
 ## Scriptable Object - Runtime Sets
 
 Sets are a way to organize data and make it easily accessible at runtime.  
@@ -112,11 +116,20 @@ public class ExampleClass : MonoBehaviour
 }
 ```
 
-## Scriptable Object - Events
+---
+
+## Scriptable Object - GameEvents
 
 UnityEvents are powerfull, but require coupling. That's why we add the middle layer the GameEvent.
 
 > Create > FeTo > SO_Architecture > GameEvent  
+
+And some extra GameEvent types which allow to pass data along with the event raise
+
+> Create > FeTo > SO_Architecture > BoolGameEvent  
+> Create > FeTo > SO_Architecture > IntGameEvent  
+> Create > FeTo > SO_Architecture > FloatGameEvent  
+> Create > FeTo > SO_Architecture > StringGameEvent  
 
 When you want the event to be raised, your code should call the GameEvent.  
 This applies both to code and to UI elements (for instance: onClick).
@@ -124,17 +137,37 @@ This applies both to code and to UI elements (for instance: onClick).
 ``` c#
 public class ExampleClass : MonoBehaviour
 {
-    public UnityEvent ExampleEvent;
+    public GameEvent ExampleEvent;
 
     private void Start() => ExampleEvent.Invoke();
 }
 ```
 
-To capture such events, you have the `GameEventListener` class, you can add as a component to any GameObject, and then specify in the inspector which methods (from other components of the same game object) should be called.
+To capture GameEvents, you have the `GameEventListener` (or `xxGameEventListener` for the typed ones) class, you can add as a component to any GameObject, and then specify in the inspector which methods (from other components of the same game object) should be called.
 
-### Bonus : Raise through Inspector
+### Raisable through Inspector
 
-GameEvent Scriptable Objects can be raised manually during gameplay since it's inspector data has been modified to show a button with such functionality.
+GameEvent Scriptable Objects can be raised manually during gameplay since it's inspector data has been modified to show a button with such functionality.  
+This allow for an easier testing in gameDevelopment
+
+
+### Make your own types
+
+If you find yourself in need of a gameEvent that passes some data of a type not covered in FeTo you can always create your own GameEvent and GameEventListeners:  
+*Keep in mind that since they depend on one another, you should make both for every type of gameElement you want to create*
+
+```C#
+[System.Serializable]
+public class XXEvent : UnityEvent<XX> { }
+[CreateAssetMenu(fileName = "XXGameEvent", menuName = "MenuName")]
+public class XXGameEvent : GameEvent<XX, XXEvent> { }
+```
+
+```C#
+public class XXGameEventListener : GameEventListener<XX, XXEvent> { }
+```
+
+---
 
 ## Warning: Persistance
 Keep in mind that the editor and the build work differently with scriptable objects.
