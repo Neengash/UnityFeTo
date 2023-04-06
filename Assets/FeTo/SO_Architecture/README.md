@@ -12,50 +12,52 @@ _Keep in mind that in order to use the following classes in your scripts you sho
 using FeTo.SOArchitecture;
 ```
 
+---
+
 ## Scriptable Variables and References
 
-Those two utilities ScriptableVariable and ScriptableReferenes, cover float, string and bool types. They can be used to share information of given types through multiple scripts without any need of hard coupling.
+Those two utilities: ScriptableVariable and ScriptableReferenes, cover int, float, string and bool types.  
+They can be used to share information of given types through multiple scripts without any need of hard coupling.
 
 ### Variables
 
-Those are scriptable objects which content is just a float, string or bool value.  
-They should be used when you want to change the value of the variable.
+Those are scriptable objects which content is just a value (of types int, float, string or bool).  
+They should be used when you want to **change** the value of the variable.
 
 > Create > FeTo > SO_Architecture > FloatVariable  
-> Create > FeTo > SO_Architecture > StringVariable
-> Create > FeTo > SO_Architecture > BoolVariable
+> Create > FeTo > SO_Architecture > StringVariable  
+> Create > FeTo > SO_Architecture > BoolVariable  
+> Create > FeTo > SO_Architecture > IntVariable  
 
-On the component you want to use the data you will need a reference to a FloatVariable, StringVariable or BoolVariable and then reference the given scriptable object through the inspector.
+On the component you want to use the data you will need a reference to an IntVariable, FloatVariable, StringVariable or BoolVariable and then reference the given scriptable object through the inspector.  
+Warning: Due to some limitations, on the inspector you will see `ScriptableVariable'1` as the type of the object, but it will only accept the one specified in the code.
 
 ``` c#
 [SerializedField] FloatVariable floatExample;
 [SerializedField] StringVariable stringExample;
 [SerializedField] BoolVariable boolExample;
+[SerializedField] IntVariable intVariable;
 ```
 
-To access or change data of a StringVariable or BoolVariable you have to access it's parameter "Value".
+ScriptableVariables should be worked with by using its methods:
 
-``` c#
-stringExample.Value = "foo";
-boolExample.Value = true;
+```C#
+public T GetValue();
+public void SetValue(T value);
+public void SetValue(ScriptableVariable<T> value);
+public void ApplyChange(T amount);
+public void ApplyChange(ScriptableVariable<T> amount);
 ```
 
-To change or set the values of the FloatVariables it is advised to use the methods provided to do so:
+Keep in mind some ScriptableVariable types (such as string or bool) might not implement the ApplyChange method.
 
-``` c# 
-public void SetValue(float value);
-public void SetValue(FloatVariable value);
-public void ApplyChange(float amount);
-public void ApplyChange(FloatVariable amount);
-```
-
-Keep in mind that those scripts that modify the value of a FloatVariable or StringVariable should set it's initial value every time the game is played (in the editor), because otherwise the scriptable object will preserve the data from previous runs.
+Keep in mind that scripts that modify the value of scriptableVariables should set it's initial value every time the game is played (in the editor), because **on the editor** the scriptable object will preserve the data from previous runs.
 
 ### References
 
-You can also find FloatReference, StringReference and BoolReference.  
-Those classes are meant to be used by those scripts that only want con read the data but not change it.  
-They allow the user to link either a [*]Variable or a constant value, the last one being usefull for those places where there's no need take the data into an scriptable object for other components to use.
+You can also find the ScriptableReference class, those are NOT scriptableObjects.  
+Those classes are meant to be used by those scripts that only want to **read** the data but not change it.  
+They allow the user to link either a ScriptableVariable or a constant value, the last one being usefull for those places where there's no need take the data into an scriptable object for other components to use.
 
 They can be used in code as if they were variables of the referenced type
 
@@ -63,11 +65,33 @@ They can be used in code as if they were variables of the referenced type
 [SerializedField] FloatReference floatExample;
 [SerializedField] StringReference stringExample;
 [SerializedField] BoolReference boolReference;
+[SerializedField] IntReference intReference;
 
 float num = floatExample + 5f;
 string text = stringExample + "some text";
 if (boolReference) {}
+int anotherNum = intReferece * 2;
 ```
+
+### Make your own types
+
+If you find yourself in need of a greater range of types for ScriptableVariables and References, you can always define your own types:
+
+```C#
+[Serializable]
+public class XXReference : ScriptableReference<XX> { }
+```
+
+```C#
+[CreateAssetMenu(fileName = "XXVariable", menuName = "MenuName")]
+public class XXVariable : ScriptableVariable<XX>
+{
+    public override void ApplyChange(XX amount) { /* Implement */ }
+    public override void ApplyChange(ScriptableVariable<XX> amount) { /* Implement */ }
+}
+```
+
+---
 
 ## Scriptable Object - Runtime Sets
 
@@ -92,11 +116,20 @@ public class ExampleClass : MonoBehaviour
 }
 ```
 
-## Scriptable Object - Events
+---
+
+## Scriptable Object - GameEvents
 
 UnityEvents are powerfull, but require coupling. That's why we add the middle layer the GameEvent.
 
 > Create > FeTo > SO_Architecture > GameEvent  
+
+And some extra GameEvent types which allow to pass data along with the event raise
+
+> Create > FeTo > SO_Architecture > BoolGameEvent  
+> Create > FeTo > SO_Architecture > IntGameEvent  
+> Create > FeTo > SO_Architecture > FloatGameEvent  
+> Create > FeTo > SO_Architecture > StringGameEvent  
 
 When you want the event to be raised, your code should call the GameEvent.  
 This applies both to code and to UI elements (for instance: onClick).
@@ -104,17 +137,37 @@ This applies both to code and to UI elements (for instance: onClick).
 ``` c#
 public class ExampleClass : MonoBehaviour
 {
-    public UnityEvent ExampleEvent;
+    public GameEvent ExampleEvent;
 
     private void Start() => ExampleEvent.Invoke();
 }
 ```
 
-To capture such events, you have the `GameEventListener` class, you can add as a component to any GameObject, and then specify in the inspector which methods (from other components of the same game object) should be called.
+To capture GameEvents, you have the `GameEventListener` (or `xxGameEventListener` for the typed ones) class, you can add as a component to any GameObject, and then specify in the inspector which methods (from other components of the same game object) should be called.
 
-### Bonus : Raise through Inspector
+### Raisable through Inspector
 
-GameEvent Scriptable Objects can be raised manually during gameplay since it's inspector data has been modified to show a button with such functionality.
+GameEvent Scriptable Objects can be raised manually during gameplay since it's inspector data has been modified to show a button with such functionality.  
+This allow for an easier testing in gameDevelopment
+
+
+### Make your own types
+
+If you find yourself in need of a gameEvent that passes some data of a type not covered in FeTo you can always create your own GameEvent and GameEventListeners:  
+*Keep in mind that since they depend on one another, you should make both for every type of gameElement you want to create*
+
+```C#
+[System.Serializable]
+public class XXEvent : UnityEvent<XX> { }
+[CreateAssetMenu(fileName = "XXGameEvent", menuName = "MenuName")]
+public class XXGameEvent : GameEvent<XX, XXEvent> { }
+```
+
+```C#
+public class XXGameEventListener : GameEventListener<XX, XXEvent> { }
+```
+
+---
 
 ## Warning: Persistance
 Keep in mind that the editor and the build work differently with scriptable objects.
