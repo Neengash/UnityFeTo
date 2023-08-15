@@ -20,6 +20,9 @@ namespace FeTo.SOArchitecture
         }
 
         public void OnEventRaised() {
+#if UNITY_EDITOR
+            Debug.Log($"FeTo: Event {Event.name} catched by {gameObject.name}");
+#endif
             Response.Invoke();
         }
     }
