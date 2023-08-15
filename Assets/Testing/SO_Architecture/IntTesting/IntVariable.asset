@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: IntVariable
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  value: 6
+  resetValue: 1
+  fixedValue: 0
+  value: 0

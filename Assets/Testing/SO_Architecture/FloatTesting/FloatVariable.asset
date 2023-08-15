@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: FloatVariable
   m_EditorClassIdentifier: 
   DeveloperDescription: 
+  resetValue: 1
+  fixedValue: 0
   value: 0
