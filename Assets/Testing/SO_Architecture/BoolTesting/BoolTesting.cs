@@ -12,7 +12,7 @@ public class BoolTesting : MonoBehaviour
         Debug.Log($"boolVariable = {boolVariable.GetValue()}");
     }
 
-    public void boolEventRaised(bool value) {
+    public void BoolEventRaised(bool value) {
         boolVariable.SetValue(value);
         Debug.Log($"boolVariable = {boolVariable.GetValue()}");
     }
