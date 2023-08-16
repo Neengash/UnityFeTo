@@ -16,8 +16,14 @@ public class MyPooledObject : PoolableObject { }
 
 Add this class to any gameObject to generate the objectPool. You will need to specify the size of the pool as well as the prefab to pool (it needs to extend the Poolable object class).
 
-To get an instance of the pool you simple have to call the GetNext() method of the ObjectPool reference. Once done working with the instance, disable it and it will autimatically return to the objectPool, available for future calls to action.
+To get an instance of the pool you simple have to call the GetNext() method of the ObjectPool reference.
 
 ``` c#
 MyPooledObject myPooledObject = (MyPooledObject)MyObjectPool.getNext();
-```
+``` 
+
+Once done working with the instance, disable it and it will autimatically return to the objectPool, available for future calls to action.
+
+``` c#
+myPooledObject.setActive(false);
+``` 
