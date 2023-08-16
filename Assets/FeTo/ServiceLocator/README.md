@@ -6,6 +6,12 @@ The service locator class is implemented as a singleton, so it can be accessed t
 
 ## How to use
 
+_Keep in mind that in order to use the following classes in your scripts you should import FeTo.SOArchitecture_
+
+```c#
+using FeTo.ServiceLocator;
+```
+
 ### Installer
 
 Create an _installer_ script that will look similar to this one (register whatever services you want to use)
