@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: BoolVariable
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  value: 0
+  resetValue: 1
+  fixedValue: 1
+  value: 1

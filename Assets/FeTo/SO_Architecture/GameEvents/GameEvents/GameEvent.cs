@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace FeTo.SOArchitecture
@@ -9,10 +10,25 @@ namespace FeTo.SOArchitecture
         /// <summary>
         /// The list of listeners that this event will notify if it is raised.
         /// </summary>
-        private readonly List<GameEventListener> eventListeners =
-            new List<GameEventListener>();
+        private readonly List<GameEventListener> eventListeners = new();
 
-        public void Raise() {
+        public void UIRaise()
+        {
+#if UNITY_EDITOR
+            Debug.Log($"FeTo: {this.name} Raised By UI");
+#endif
+            DoRaise();
+        }
+
+        public void Raise([CallerMemberName] string callerName = "") {
+#if UNITY_EDITOR
+            Debug.Log($"FeTo: {this.name} Raised By {callerName}");
+#endif
+            DoRaise();
+        }
+
+        private void DoRaise()
+        {
             for (int i = eventListeners.Count - 1; i >= 0; i--)
                 eventListeners[i].OnEventRaised();
         }
