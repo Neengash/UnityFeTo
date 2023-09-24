@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Logger = FeTo.Logging.Logger;
 
 namespace FeTo.SOArchitecture
 {
@@ -26,7 +25,7 @@ namespace FeTo.SOArchitecture
         public void OnEventRaised(T value)
         {
 #if UNITY_EDITOR
-            Debug.Log($"FeTo: Event {Event.name} catched by {gameObject.name}");
+            Logger.FeToInfo(Event.LogEvents, $"FeTo: Event {Event.name} catched by {gameObject.name}");
 #endif
             Response.Invoke(value);
         }
