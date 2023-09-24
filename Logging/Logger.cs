@@ -5,39 +5,39 @@ namespace FeTo.Logging
     public static class Logger
     {
         [System.Diagnostics.Conditional("UNITY_EDITOR")]
-        public static void Info(string message)
+        public static void Info(string message, Object context = null)
         {
-            Debug.Log(message);
+            Debug.Log(message, context);
         }
 
         [System.Diagnostics.Conditional("UNITY_EDITOR")]
-        public static void Warn(string message)
+        public static void Warn(string message, Object context = null)
         {
-            Debug.LogWarning(message);
+            Debug.LogWarning(message, context);
         }
 
         [System.Diagnostics.Conditional("UNITY_EDITOR")]
-        public static void Error(string message)
+        public static void Error(string message, Object context = null)
         {
-            Debug.LogError(message);
+            Debug.LogError(message, context);
         }
 
         [System.Diagnostics.Conditional("FETO_LOGS")]
-        internal static void FeToInfo(bool shouldLog, string message)
+        internal static void FeToInfo(bool shouldLog, string message, Object context = null)
         {
-            if (shouldLog) { Info(message); }
+            if (shouldLog) { Info(message, context); }
         }
 
         [System.Diagnostics.Conditional("FETO_LOGS")]
-        internal static void FeToWarn(bool shouldLog, string message)
+        internal static void FeToWarn(bool shouldLog, string message, Object context = null)
         {
-            if (shouldLog) { Warn(message); }
+            if (shouldLog) { Warn(message, context); }
         }
 
         [System.Diagnostics.Conditional("FETO_LOGS")]
-        internal static void FeToError(bool shouldLog, string message)
+        internal static void FeToError(bool shouldLog, string message, Object context = null)
         {
-            if (shouldLog) { Error(message); }
+            if (shouldLog) { Error(message, context); }
         }
     }
 }
