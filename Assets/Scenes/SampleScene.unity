@@ -370,22 +370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaae6c3b9524f83418b2ac51b75ac472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: a1268de64c406794ca6071af2bcc1175, type: 2}
+  Event: {fileID: 0}
   Response:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 154129743}
-        m_TargetAssemblyTypeName: StringTesting, Assembly-CSharp
-        m_MethodName: stringEventRaised
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &154129743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,22 +436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f51af7665ea2d4a9c007775d8da630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 1bdcf7b799c700d4d836973e406f6205, type: 2}
+  Event: {fileID: 0}
   Response:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 236530265}
-        m_TargetAssemblyTypeName: FloatTesting, Assembly-CSharp
-        m_MethodName: floatEventRaised
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &236530265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,8 +507,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 285419135}
-        m_TargetAssemblyTypeName: IntTesting, Assembly-CSharp
-        m_MethodName: intEventRaised
+        m_TargetAssemblyTypeName: IntTesting, FeTo_Testing
+        m_MethodName: IntEventRaised
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
