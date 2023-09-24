@@ -1,0 +1,16 @@
+{
+    "name": "FeTo_Testing",
+    "rootNamespace": "",
+    "references": [
+        "GUID:594e2e625d5aee443953e189692af270"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
