@@ -25,6 +25,10 @@ The route should be : "https://github.com/Neengash/UnityFeTo.git?path=/Assets/Fe
 
 [Object Pooling Documentation](/Assets/FeTo/ObjectPool/)
 
+### Service Locator
+
+[Service Locator Documentation](/Assets/FeTo/ServiceLocator/)
+
 ### Scriptable Object Architecture
 
 [Scriptable Object Architecture Documentation](/Assets/FeTo/SO_Architecture/)
