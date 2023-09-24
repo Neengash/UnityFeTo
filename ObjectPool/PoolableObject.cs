@@ -13,10 +13,8 @@ namespace FeTo.ObjectPool
 
         protected virtual void OnDisable()
         {
-            if (pool != null)
-            {
-                pool.AddToPool(this);
-            }
+            if (pool == null) { return; }
+            pool.AddToPool(this);
         }
     }
 }
