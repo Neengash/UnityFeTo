@@ -48,8 +48,7 @@ Or you can overload the name, setting some custome name if that helps your debug
 
 ### Make your own types
 
-If you find yourself in need of a gameEvent that passes some data of a type not covered in FeTo you can always create your own GameEvent and GameEventListeners:  
-*Keep in mind that since they depend on one another, you should make both for every type of gameElement you want to create*
+If you find yourself in need of a gameEvent that passes some data of a type not covered in FeTo you can always create your own GameEvent
 
 ```C#
 [System.Serializable]
@@ -58,6 +57,46 @@ public class XXEvent : UnityEvent<XX> { }
 public class XXGameEvent : GameEvent<XX, XXEvent> { }
 ```
 
+## GameEventListeners
+
+For GameEvents to be useful you need some object to be listnening to it.
+That's where gameEventListeners come into play.
+
+Every object that you want to be listening to a specific gameEvent should have a GameEventListener.
+
+### OnEnable GameEventListener
+
+FeTo comes with a handfull of gameEventListeners (one for each type of GameEvent mentioned above).
+They all implement the *OnEnable* logic, meaning, the will listen to the event as long as they are enabled.
+
+Those Game Event listeners (components) are:
+```c#
+OnEnableGameEventListener
+OnEnableBoolGameEventListener
+OnEnableIntGameEventListener
+OnEnableFloatGameEventListener
+OnEnableStringGameEventListener
+```
+
+### Custom Behavior GameEventListeners
+
+It could happen that you don't want to listen to the event when the listener is enabled, but when the player enters some trigger, or even make it a part of the game logic.   
+For such cases you will find the abstract GameEventListener clases you will have to extend, indicating when they should start and stop listening to the event. (Take any `OnEnableGameEventListener` as a example).  
+
+To Register and unregister (start and stop listening) you just need to call those functions.
+```c#
+Event.RegisterListener(this);
+Event.UnregisterListener(this);
+```
+
+### Make your own types
+
+The same way you can create new GameEvents, you will need new GameEventListeners to listlen to them.
+*Keep in mind that since they depend on one another, you should make both for every type of gameElement you want to create*
+
 ```C#
 public class XXGameEventListener : GameEventListener<XX, XXEvent> { }
 ```
+
+You could either leave that class empty, and then create a new Behavior class for the new XXGameEventListener, or just add behavior and gameEventListener type in the same class.  
+(Take at `TypedGameEventListeners` and `OnEnableGameEventListeners`)
