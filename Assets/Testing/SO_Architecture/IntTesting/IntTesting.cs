@@ -1,5 +1,5 @@
-using UnityEngine;
 using FeTo.SOArchitecture;
+using UnityEngine;
 
 public class IntTesting : MonoBehaviour
 {
@@ -12,7 +12,8 @@ public class IntTesting : MonoBehaviour
         Debug.Log($"intVariable = {intVariable.GetValue()}");
     }
 
-    public void intEventRaised(int i) {
+    public void IntEventRaised(int i)
+    {
         intVariable.ApplyChange(i);
         Debug.Log($"intVariable = {intVariable.GetValue()}");
     }

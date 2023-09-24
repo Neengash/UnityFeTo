@@ -6,13 +6,16 @@ namespace FeTo.ObjectPool
     {
         protected ObjectPool pool;
 
-        public void setPool(ObjectPool pool) {
+        public void SetPool(ObjectPool pool)
+        {
             this.pool = pool;
         }
 
-        protected virtual void OnDisable() {
-            if (pool != null) {
-                pool.addToPool(this);
+        protected virtual void OnDisable()
+        {
+            if (pool != null)
+            {
+                pool.AddToPool(this);
             }
         }
     }

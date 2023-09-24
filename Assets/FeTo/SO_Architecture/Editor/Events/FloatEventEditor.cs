@@ -8,7 +8,8 @@ namespace FeTo.SOArchitecture
     {
         float floatEventValue = 0;
 
-        public override void OnInspectorGUI() {
+        public override void OnInspectorGUI()
+        {
             base.OnInspectorGUI();
 
             GUI.enabled = Application.isPlaying;

@@ -6,7 +6,8 @@ namespace FeTo.SOArchitecture
     [CustomEditor(typeof(GameEvent))]
     public class EventEditor : Editor
     {
-        public override void OnInspectorGUI() {
+        public override void OnInspectorGUI()
+        {
             base.OnInspectorGUI();
 
             GUI.enabled = Application.isPlaying;

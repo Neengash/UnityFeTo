@@ -1,5 +1,5 @@
-using UnityEngine;
 using FeTo.SOArchitecture;
+using UnityEngine;
 
 public class StringTesting : MonoBehaviour
 {
@@ -12,7 +12,8 @@ public class StringTesting : MonoBehaviour
         Debug.Log($"stringVariable = {stringVariable.GetValue()}");
     }
 
-    public void stringEventRaised(string value) {
+    public void StringEventRaised(string value)
+    {
         stringVariable.SetValue(value);
         Debug.Log($"stringVariable = {stringVariable.GetValue()}");
     }

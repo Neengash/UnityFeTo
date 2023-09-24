@@ -11,15 +11,18 @@ namespace FeTo.SOArchitecture
         [Tooltip("Response to invoke when Event is raised.")]
         public UnityEvent Response;
 
-        protected void OnEnable() {
+        protected void OnEnable()
+        {
             Event.RegisterListener(this);
         }
 
-        protected void OnDisable() {
+        protected void OnDisable()
+        {
             Event.UnregisterListener(this);
         }
 
-        public void OnEventRaised() {
+        public void OnEventRaised()
+        {
 #if UNITY_EDITOR
             Debug.Log($"FeTo: Event {Event.name} catched by {gameObject.name}");
 #endif
