@@ -4,6 +4,7 @@ using Logger = FeTo.Logging.Logger;
 
 namespace FeTo.SOArchitecture
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/GameEvents#scriptable-object---gameevents")]
     public class GameEventListener : MonoBehaviour
     {
         [Tooltip("Event to register with.")]

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace FeTo.Logging
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/Logging#feto-logger")]
     public static class Logger
     {
         [System.Diagnostics.Conditional("UNITY_EDITOR")]

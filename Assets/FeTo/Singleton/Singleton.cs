@@ -3,6 +3,7 @@ using UnityEngine;
 namespace FeTo.Singleton
 {
     [DefaultExecutionOrder(-1)]
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/Singleton#singleton")]
     public class Singleton<T> : MonoBehaviour where T : Component
     {
         private static bool quitting = false;

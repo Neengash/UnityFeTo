@@ -4,6 +4,7 @@ using Logger = FeTo.Logging.Logger;
 
 namespace FeTo.SOArchitecture
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/RuntimeSet#runtime-sets")]
     public abstract class RuntimeSet<T> : ScriptableObject where T : Object
     {
         public List<T> Items = new();

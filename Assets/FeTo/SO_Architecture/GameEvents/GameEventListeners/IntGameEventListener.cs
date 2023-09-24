@@ -1,4 +1,7 @@
+using UnityEngine;
+
 namespace FeTo.SOArchitecture
 {
-    public class IntGameEventListener: GameEventListener<int, IntEvent> { }
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/GameEvents#scriptable-object---gameevents")]
+    public class IntGameEventListener : GameEventListener<int, IntEvent> { }
 }

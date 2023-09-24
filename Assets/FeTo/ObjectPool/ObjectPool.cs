@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace FeTo.ObjectPool
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/ObjectPool#object-pool")]
     public class ObjectPool : MonoBehaviour
     {
         [SerializeField, Tooltip("Throw exception when calling GetNext of an empty pool")]
