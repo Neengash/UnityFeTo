@@ -1,5 +1,6 @@
 using FeTo.ServiceLocator;
 using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 public class PrintServiceNumber : MonoBehaviour
 {
@@ -11,6 +12,6 @@ public class PrintServiceNumber : MonoBehaviour
 
     public void Print()
     {
-        Debug.Log(TestService.GetRandomValue());
+        Logger.Info($"{TestService.GetRandomValue()}");
     }
 }

@@ -1,5 +1,6 @@
 using FeTo.SOArchitecture;
 using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 public class FloatTesting : MonoBehaviour
 {
@@ -8,13 +9,13 @@ public class FloatTesting : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"floatReference = {floatReference}");
-        Debug.Log($"floatVariable = {floatVariable.GetValue()}");
+        Logger.Info($"floatReference = {floatReference}");
+        Logger.Info($"floatVariable = {floatVariable.GetValue()}");
     }
 
     public void FloatEventRaised(float i)
     {
         floatVariable.ApplyChange(i);
-        Debug.Log($"floatVariable = {floatVariable.GetValue()}");
+        Logger.Info($"floatVariable = {floatVariable.GetValue()}");
     }
 }

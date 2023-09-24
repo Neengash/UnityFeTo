@@ -1,5 +1,6 @@
-using UnityEngine;
 using FeTo.SOArchitecture;
+using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 public class BoolTesting : MonoBehaviour
 {
@@ -7,13 +8,14 @@ public class BoolTesting : MonoBehaviour
 
     public BoolVariable boolVariable;
 
-    private void Start() {
-        Debug.Log($"boolReference = {boolReference}");
-        Debug.Log($"boolVariable = {boolVariable.GetValue()}");
+    private void Start()
+    {
+        Logger.Info($"boolReference = {boolReference}");
     }
 
-    public void BoolEventRaised(bool value) {
+    public void BoolEventRaised(bool value)
+    {
         boolVariable.SetValue(value);
-        Debug.Log($"boolVariable = {boolVariable.GetValue()}");
+        Logger.Info($"boolVariable = {boolVariable.GetValue()}");
     }
 }

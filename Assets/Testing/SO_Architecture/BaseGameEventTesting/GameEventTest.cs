@@ -1,9 +1,10 @@
 using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 public class GameEventTest : MonoBehaviour
 {
     public void GameEventRaised()
     {
-        Debug.Log("Game Event Raised");
+        Logger.Info("Game Event Raised");
     }
 }

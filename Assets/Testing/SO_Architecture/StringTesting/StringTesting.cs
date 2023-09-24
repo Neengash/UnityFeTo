@@ -1,5 +1,6 @@
 using FeTo.SOArchitecture;
 using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 public class StringTesting : MonoBehaviour
 {
@@ -8,13 +9,13 @@ public class StringTesting : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"stringReference = {stringReference}");
-        Debug.Log($"stringVariable = {stringVariable.GetValue()}");
+        Logger.Info($"stringReference = {stringReference}");
+        Logger.Info($"stringVariable = {stringVariable.GetValue()}");
     }
 
     public void StringEventRaised(string value)
     {
         stringVariable.SetValue(value);
-        Debug.Log($"stringVariable = {stringVariable.GetValue()}");
+        Logger.Info($"stringVariable = {stringVariable.GetValue()}");
     }
 }
