@@ -31,11 +31,11 @@ In case you need to track events being raised, catched or even when a listener s
 
 `Edit > Project Settings ... > Player > Other Settings > Script Compilation > Scripting Define Symbols > +`  
 
-[Define Symbol Image](/Assets/FeTo/Logging/Media/DefineSymbols.png)
+![Define Symbol Image](/Assets/FeTo/Logging/Media/DefineSymbols.png)
 
 Once activated, you simply need to go to the trackable FeTo tool and activate its events.
 
-[Activate Logs Image](/Assets/FeTo/Logging/Media/LogEvents.png)
+![Activate Logs Image](/Assets/FeTo/Logging/Media/LogEvents.png)
 
 Right now, trackable tools are:
 * GameEvents
