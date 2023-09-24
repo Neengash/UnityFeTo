@@ -1,4 +1,4 @@
-using System;
+using FeTo.Exceptions;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ namespace FeTo.ObjectPool
         [SerializeField]
         private List<PoolableObject> pool;
 
-        void Awake()
+        private void Awake()
         {
             pool = new List<PoolableObject>();
 
@@ -58,7 +58,7 @@ namespace FeTo.ObjectPool
         {
             if (pool.Count == 0 && ThrowErrorOnEmpty)
             {
-                throw new Exception("Calling GetNext on empty Pool");
+                throw new FeToException("Calling GetNext on empty Pool");
             }
         }
 
