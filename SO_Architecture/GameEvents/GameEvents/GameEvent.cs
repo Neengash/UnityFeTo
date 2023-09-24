@@ -5,6 +5,7 @@ using Logger = FeTo.Logging.Logger;
 
 namespace FeTo.SOArchitecture
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/GameEvents#scriptable-object---gameevents")]
     [CreateAssetMenu(fileName = "GameEvent", menuName = "FeTo/SO_Architecture/GameEvent", order = 0)]
     public class GameEvent : ScriptableObject
     {
