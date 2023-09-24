@@ -20,7 +20,8 @@ namespace FeTo.SOArchitecture
             DoRaise();
         }
 
-        public void Raise([CallerMemberName] string callerName = "") {
+        public void Raise([CallerMemberName] string callerName = "")
+        {
 #if UNITY_EDITOR
             Debug.Log($"FeTo: {this.name} Raised By {callerName}");
 #endif
@@ -33,12 +34,14 @@ namespace FeTo.SOArchitecture
                 eventListeners[i].OnEventRaised();
         }
 
-        public void RegisterListener(GameEventListener listener) {
+        public void RegisterListener(GameEventListener listener)
+        {
             if (!eventListeners.Contains(listener))
                 eventListeners.Add(listener);
         }
 
-        public void UnregisterListener(GameEventListener listener) {
+        public void UnregisterListener(GameEventListener listener)
+        {
             if (eventListeners.Contains(listener))
                 eventListeners.Remove(listener);
         }

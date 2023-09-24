@@ -1,22 +1,24 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [CustomPropertyDrawer(typeof(ScriptableReference<>), useForChildren:true)]
+    [CustomPropertyDrawer(typeof(ScriptableReference<>), useForChildren: true)]
     public class ReferenceDrawer : PropertyDrawer
-    { 
+    {
         /// <summary>
         /// Options to display in the popup to select constant or variable
         /// </summary>
-        private readonly string[] popupOptions = 
+        private readonly string[] popupOptions =
             { "Use Constant", "Use Variable" };
 
         /// <summary> Cached style to use to draw the popup button. </summary>
         private GUIStyle popupStyle;
 
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-            if (popupStyle == null) {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            if (popupStyle == null)
+            {
                 popupStyle = new GUIStyle(GUI.skin.GetStyle("PaneOptions"));
                 popupStyle.imagePosition = ImagePosition.ImageOnly;
             }
@@ -32,7 +34,7 @@ namespace FeTo.SOArchitecture
             SerializedProperty variable = property.FindPropertyRelative("Variable");
 
             // Calculate rect for configuration button
-            Rect buttonRect = new Rect(position);
+            Rect buttonRect = new(position);
             buttonRect.yMin += popupStyle.margin.top;
             buttonRect.width = popupStyle.fixedWidth + popupStyle.margin.right;
             position.xMin = buttonRect.xMax;
