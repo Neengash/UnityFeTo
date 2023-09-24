@@ -29,7 +29,8 @@ namespace FeTo.Singleton
             if (_instance == null)
             {
                 _instance = this as T;
-            } else if (_instance != this)
+            }
+            else if (_instance != this)
             {
                 Destroy(gameObject);
             }
@@ -78,7 +79,8 @@ namespace FeTo.Singleton
             {
                 _instance = this as T;
                 DontDestroyOnLoad(gameObject);
-            } else if (_instance != this)
+            }
+            else if (_instance != this)
             {
                 Destroy(gameObject);
             }
