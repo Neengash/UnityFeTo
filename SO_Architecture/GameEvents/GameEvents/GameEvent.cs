@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 namespace FeTo.SOArchitecture
 {
@@ -12,10 +13,16 @@ namespace FeTo.SOArchitecture
         /// </summary>
         private readonly List<GameEventListener> eventListeners = new();
 
+#if UNITY_EDITOR
+        [SerializeField]
+        private bool _logEvents = false;
+        public bool LogEvents { get => _logEvents; }
+#endif
+
         public void UIRaise()
         {
 #if UNITY_EDITOR
-            Debug.Log($"FeTo: {this.name} Raised By UI");
+            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By UI");
 #endif
             DoRaise();
         }
@@ -23,7 +30,7 @@ namespace FeTo.SOArchitecture
         public void Raise([CallerMemberName] string callerName = "")
         {
 #if UNITY_EDITOR
-            Debug.Log($"FeTo: {this.name} Raised By {callerName}");
+            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By {callerName}");
 #endif
             DoRaise();
         }
@@ -37,13 +44,23 @@ namespace FeTo.SOArchitecture
         public void RegisterListener(GameEventListener listener)
         {
             if (!eventListeners.Contains(listener))
+            {
+#if UNITY_EDITOR
+                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} now listening to {this.name}");
+#endif
                 eventListeners.Add(listener);
+            }
         }
 
         public void UnregisterListener(GameEventListener listener)
         {
             if (eventListeners.Contains(listener))
+            {
+#if UNITY_EDITOR
+                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} stopped listening to {this.name}");
+#endif
                 eventListeners.Remove(listener);
+            }
         }
     }
 }
