@@ -4,7 +4,7 @@ namespace FeTo.Singleton
 {
     [DefaultExecutionOrder(-1)]
     [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/Singleton#singleton")]
-    public class Singleton<T> : MonoBehaviour where T : Component
+    public class SingletonPersistent<T> : MonoBehaviour where T : Component
     {
         private static bool quitting = false;
         private static T _instance;
@@ -30,6 +30,7 @@ namespace FeTo.Singleton
             if (_instance == null)
             {
                 _instance = this as T;
+                DontDestroyOnLoad(gameObject);
             }
             else if (_instance != this)
             {
