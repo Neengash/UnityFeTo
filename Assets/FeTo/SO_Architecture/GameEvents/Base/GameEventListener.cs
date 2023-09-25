@@ -16,7 +16,7 @@ namespace FeTo.SOArchitecture
         public void OnEventRaised()
         {
 #if UNITY_EDITOR
-            Logger.FeToInfo(Event.LogEvents, $"FeTo: Event {Event.name} catched by {gameObject.name}");
+            Logger.FeToInfo(Event.LogEvents, $"FeTo: Event {Event.name} catched by {gameObject.name}", this);
 #endif
             Response.Invoke();
         }
