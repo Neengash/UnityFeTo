@@ -19,7 +19,7 @@ namespace FeTo.SOArchitecture
             if (!Items.Contains(thing))
             {
 #if UNITY_EDITOR
-                Logger.FeToInfo(_logEvents, $"Added {thing.name} to {this.name}");
+                Logger.FeToInfo(_logEvents, $"Added {thing.name} to {this.name}", thing);
 #endif
                 Items.Add(thing);
             }
@@ -30,7 +30,7 @@ namespace FeTo.SOArchitecture
             if (Items.Contains(thing))
             {
 #if UNITY_EDITOR
-                Logger.FeToInfo(_logEvents, $"Removed {thing.name} from {this.name}");
+                Logger.FeToInfo(_logEvents, $"Removed {thing.name} from {this.name}", thing);
 #endif
                 Items.Remove(thing);
             }

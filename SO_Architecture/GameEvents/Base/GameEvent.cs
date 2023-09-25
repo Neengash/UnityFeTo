@@ -23,7 +23,7 @@ namespace FeTo.SOArchitecture
         public void UIRaise()
         {
 #if UNITY_EDITOR
-            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By UI");
+            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By UI", this);
 #endif
             DoRaise();
         }
@@ -31,7 +31,7 @@ namespace FeTo.SOArchitecture
         public void Raise([CallerMemberName] string callerName = "")
         {
 #if UNITY_EDITOR
-            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By {callerName}");
+            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By {callerName}", this);
 #endif
             DoRaise();
         }
@@ -47,7 +47,7 @@ namespace FeTo.SOArchitecture
             if (!eventListeners.Contains(listener))
             {
 #if UNITY_EDITOR
-                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} now listening to {this.name}");
+                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} now listening to {this.name}", listener);
 #endif
                 eventListeners.Add(listener);
             }
@@ -58,7 +58,7 @@ namespace FeTo.SOArchitecture
             if (eventListeners.Contains(listener))
             {
 #if UNITY_EDITOR
-                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} stopped listening to {this.name}");
+                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} stopped listening to {this.name}", listener);
 #endif
                 eventListeners.Remove(listener);
             }
