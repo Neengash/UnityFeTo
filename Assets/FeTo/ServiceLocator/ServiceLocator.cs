@@ -1,9 +1,11 @@
 using FeTo.Exceptions;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace FeTo.ServiceLocator
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/ServiceLocator#service-locator")]
     public class ServiceLocator
     {
         public static ServiceLocator Instance => _instance ??= new ServiceLocator();

@@ -1,42 +1,53 @@
-using System;
+using FeTo.Exceptions;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace FeTo.ObjectPool
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/ObjectPool#object-pool")]
     public class ObjectPool : MonoBehaviour
     {
         [SerializeField, Tooltip("Throw exception when calling GetNext of an empty pool")]
-        bool ThrowErrorOnEmpty = true;
+        private bool ThrowErrorOnEmpty = true;
 
-        [SerializeField] int poolSize;
-        [SerializeField] PoolableObject prefab;
-        [SerializeField] List<PoolableObject> pool;
+        [SerializeField]
+        private int poolSize;
 
-        void Awake() {
+        [SerializeField]
+        private PoolableObject prefab;
+
+        [SerializeField]
+        private List<PoolableObject> pool;
+
+        private void Awake()
+        {
             pool = new List<PoolableObject>();
 
-            for (int i = 0; i < poolSize; i++) {
+            for (int i = 0; i < poolSize; i++)
+            {
                 CreateElement();
             }
         }
 
-        private PoolableObject CreateElement() {
+        private PoolableObject CreateElement()
+        {
             PoolableObject element = Instantiate(prefab);
-            element.setPool(this);
+            element.SetPool(this);
             element.gameObject.SetActive(false);
             // pool.Add(element); // poolableObjects are added ondisable
             return element;
         }
 
-        public void addToPool(PoolableObject element) {
+        public void AddToPool(PoolableObject element)
+        {
             pool.Add(element);
         }
 
-        public PoolableObject GetNext() {
-            #if UNITY_EDITOR
+        public PoolableObject GetNext()
+        {
+#if UNITY_EDITOR
             CheckEmptyPoolException();
-            #endif
+#endif
             CheckEmptyPool();
 
             PoolableObject element = pool[0];
@@ -44,14 +55,18 @@ namespace FeTo.ObjectPool
             return element;
         }
 
-        private void CheckEmptyPoolException() {
-            if (pool.Count == 0 && ThrowErrorOnEmpty) {
-                throw new Exception("Calling GetNext on empty Pool");
+        private void CheckEmptyPoolException()
+        {
+            if (pool.Count == 0 && ThrowErrorOnEmpty)
+            {
+                throw new FeToException("Calling GetNext on empty Pool");
             }
         }
 
-        private void CheckEmptyPool() {
-            if (pool.Count == 0) {
+        private void CheckEmptyPool()
+        {
+            if (pool.Count == 0)
+            {
                 CreateElement();
             }
         }

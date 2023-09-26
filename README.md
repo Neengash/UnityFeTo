@@ -13,6 +13,10 @@ The route should be : "https://github.com/Neengash/UnityFeTo.git?path=/Assets/Fe
 
 ## Tools included
 
+### Logger
+
+[Logger Documentation](/Assets/FeTo/Logging/)
+
 ### Singleton
 
 [Singleton Documentation](/Assets/FeTo/Singleton/)
@@ -20,6 +24,10 @@ The route should be : "https://github.com/Neengash/UnityFeTo.git?path=/Assets/Fe
 ### Object Pooling
 
 [Object Pooling Documentation](/Assets/FeTo/ObjectPool/)
+
+### Service Locator
+
+[Service Locator Documentation](/Assets/FeTo/ServiceLocator/)
 
 ### Scriptable Object Architecture
 

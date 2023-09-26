@@ -12,16 +12,16 @@ _Keep in mind that in order to use the following classes in your scripts you sho
 using FeTo.SOArchitecture;
 ```
 
-## Scriptable [Variables](/ScriptableVariables) and [References](/ScriptableReferences)
+## Scriptable [Variables](/Assets/FeTo/SO_Architecture/ScriptableVariables) and [References](/Assets/FeTo/SO_Architecture/ScriptableReferences)
 
 Those two utilities: ScriptableVariable and ScriptableReferenes, cover int, float, string and bool types.  
 They can be used to share information of given types through multiple scripts without any need of hard coupling.
 
-## [Runtime Sets](/RuntimeSet)
+## [Runtime Sets](/Assets/FeTo/SO_Architecture/RuntimeSet)
 
 Sets are a way to organize data and make it easily accessible at runtime.  
 RuntimeSets is an abstract class that should be inherited.
 
-## [GameEvents](/GameEvents)
+## [GameEvents](/Assets/FeTo/SO_Architecture/GameEvents)
 
 UnityEvents are powerfull, but require coupling. That's why we add the middle layer the GameEvent.

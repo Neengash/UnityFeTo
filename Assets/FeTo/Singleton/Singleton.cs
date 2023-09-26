@@ -3,75 +3,50 @@ using UnityEngine;
 namespace FeTo.Singleton
 {
     [DefaultExecutionOrder(-1)]
-    public class Singleton <T> : MonoBehaviour where T : Component
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/Singleton#singleton")]
+    public class Singleton<T> : MonoBehaviour where T : Component
     {
         private static bool quitting = false;
         private static T _instance;
 
-        public static T Instance {
-            get{
-                if (_instance == null && !quitting) {
-                    GameObject go = new GameObject();
-                    go.name = typeof(T).Name + "_Generated"; 
+        public static T Instance
+        {
+            get
+            {
+                if (_instance == null && !quitting)
+                {
+                    GameObject go = new()
+                    {
+                        name = typeof(T).Name + "_Generated",
+                    };
                     _instance = go.AddComponent<T>();
                 }
                 return _instance;
             }
         }
 
-        protected virtual void Awake() {
-            if (_instance == null) {
+        protected virtual void Awake()
+        {
+            if (_instance == null)
+            {
                 _instance = this as T;
-            } else if (_instance != this) {
+            }
+            else if (_instance != this)
+            {
                 Destroy(gameObject);
             }
         }
 
-        protected virtual void OnDestroy() {
-            if (_instance == this) {
+        protected virtual void OnDestroy()
+        {
+            if (_instance == this)
+            {
                 _instance = null;
             }
         }
 
-        protected void OnApplicationQuit() {
-            quitting = true;
-        }
-    }
-
-
-    [DefaultExecutionOrder(-1)]
-    public class SingletonPersistent <T> : MonoBehaviour where T : Component
-    {
-        private static bool quitting = false;
-        private static T _instance;
-
-        public static T Instance {
-            get{
-                if (_instance == null && !quitting) {
-                    GameObject go = new GameObject();
-                    go.name = typeof(T).Name + "_Generated";
-                    _instance = go.AddComponent<T>();
-                }
-                return _instance;
-            }
-        }
-
-        protected virtual void Awake() {
-            if (_instance == null) {
-                _instance = this as T;
-                DontDestroyOnLoad(gameObject);
-            } else if (_instance != this) {
-                Destroy(gameObject);
-            }
-        }
-
-        protected virtual void OnDestroy() {
-            if (_instance == this) {
-                _instance = null;
-            }
-        }
-
-        protected void OnApplicationQuit() {
+        protected void OnApplicationQuit()
+        {
             quitting = true;
         }
     }

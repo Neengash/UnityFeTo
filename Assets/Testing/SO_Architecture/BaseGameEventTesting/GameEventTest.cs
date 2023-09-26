@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 public class GameEventTest : MonoBehaviour
 {
-    public void GameEventRaised() {
-        Debug.Log("Game Event Raised");
+    public void GameEventRaised()
+    {
+        Logger.Info("Game Event Raised");
     }
 }

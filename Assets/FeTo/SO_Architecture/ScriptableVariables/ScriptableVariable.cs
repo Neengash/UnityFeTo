@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace FeTo.SOArchitecture
 {
-    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture#scriptable-variables-and-references")]
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/ScriptableVariables#scriptable-variables")]
     public abstract class ScriptableVariable<T> : ScriptableObject
     {
 #if UNITY_EDITOR
@@ -25,7 +23,8 @@ namespace FeTo.SOArchitecture
         [SerializeField]
         protected T value;
 
-        public T GetValue() {
+        public T GetValue()
+        {
             return value;
         }
 

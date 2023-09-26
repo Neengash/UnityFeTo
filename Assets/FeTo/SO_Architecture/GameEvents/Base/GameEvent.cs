@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Logger = FeTo.Logging.Logger;
 
 namespace FeTo.SOArchitecture
 {
+    [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/GameEvents#scriptable-object---gameevents")]
     [CreateAssetMenu(fileName = "GameEvent", menuName = "FeTo/SO_Architecture/GameEvent", order = 0)]
     public class GameEvent : ScriptableObject
     {
@@ -12,17 +14,24 @@ namespace FeTo.SOArchitecture
         /// </summary>
         private readonly List<GameEventListener> eventListeners = new();
 
+#if UNITY_EDITOR
+        [SerializeField]
+        private bool _logEvents = false;
+        public bool LogEvents { get => _logEvents; }
+#endif
+
         public void UIRaise()
         {
 #if UNITY_EDITOR
-            Debug.Log($"FeTo: {this.name} Raised By UI");
+            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By UI", this);
 #endif
             DoRaise();
         }
 
-        public void Raise([CallerMemberName] string callerName = "") {
+        public void Raise([CallerMemberName] string callerName = "")
+        {
 #if UNITY_EDITOR
-            Debug.Log($"FeTo: {this.name} Raised By {callerName}");
+            Logger.FeToInfo(LogEvents, $"FeTo: {name} Raised By {callerName}", this);
 #endif
             DoRaise();
         }
@@ -33,14 +42,26 @@ namespace FeTo.SOArchitecture
                 eventListeners[i].OnEventRaised();
         }
 
-        public void RegisterListener(GameEventListener listener) {
+        public void RegisterListener(GameEventListener listener)
+        {
             if (!eventListeners.Contains(listener))
+            {
+#if UNITY_EDITOR
+                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} now listening to {this.name}", listener);
+#endif
                 eventListeners.Add(listener);
+            }
         }
 
-        public void UnregisterListener(GameEventListener listener) {
+        public void UnregisterListener(GameEventListener listener)
+        {
             if (eventListeners.Contains(listener))
+            {
+#if UNITY_EDITOR
+                Logger.FeToInfo(LogEvents, $"FeTo: {listener.name} stopped listening to {this.name}", listener);
+#endif
                 eventListeners.Remove(listener);
+            }
         }
     }
 }

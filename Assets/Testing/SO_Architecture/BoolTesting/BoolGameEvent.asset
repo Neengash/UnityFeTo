@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2000ce8cb40f0ba4f9daa39d445ea6b7, type: 3}
   m_Name: BoolGameEvent
   m_EditorClassIdentifier: 
+  _logEvents: 1

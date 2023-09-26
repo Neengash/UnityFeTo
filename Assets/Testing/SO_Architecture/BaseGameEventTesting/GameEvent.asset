@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c35d4fb1cae1646bee127c1f1eb298, type: 3}
   m_Name: GameEvent
   m_EditorClassIdentifier: 
+  _logEvents: 1
