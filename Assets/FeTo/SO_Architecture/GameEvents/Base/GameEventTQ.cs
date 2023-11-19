@@ -7,7 +7,7 @@ using Logger = FeTo.Logging.Logger;
 namespace FeTo.SOArchitecture
 {
     [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/GameEvents#scriptable-object---gameevents")]
-    public abstract class GameEvent<T, Q> : ScriptableObject where Q : UnityEvent<T>
+    public abstract class GameEvent<T, Q> : FeToScriptableObject where Q : UnityEvent<T>
     {
         /// <summary>
         /// The list of listeners that this event will notify if it is raised.

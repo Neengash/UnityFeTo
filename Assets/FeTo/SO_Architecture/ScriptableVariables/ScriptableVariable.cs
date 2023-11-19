@@ -3,7 +3,7 @@ using UnityEngine;
 namespace FeTo.SOArchitecture
 {
     [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/ScriptableVariables#scriptable-variables")]
-    public abstract class ScriptableVariable<T> : ScriptableObject
+    public abstract class ScriptableVariable<T> : FeToScriptableObject
     {
 #if UNITY_EDITOR
         [Multiline]
