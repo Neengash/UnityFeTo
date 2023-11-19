@@ -30,7 +30,18 @@ RuntimeSets is an abstract class that should be inherited.
 
 UnityEvents are powerfull, but require coupling. That's why we add the middle layer the GameEvent.
 
+---
+---
+---
+
+_The following topics are informative only, they don't contain basic classes to extend or an already build functionality_
+
 ## [Enums](/Assets/FeTo/SO_Architecture/EnumScriptableObject/)
 
 A new way to think about enums. 
 Extend their basic behavior with scriptable objects.
+
+## [The strategy Pattern](/Assets/FeTo/SO_Architecture/StrategyPattern/)
+
+By using an abstract Scriptable object, and implementing multiple versions of it.  
+We can easily set up an strategy pattern that get's managed in the editor.
