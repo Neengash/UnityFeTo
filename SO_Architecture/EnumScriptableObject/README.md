@@ -8,17 +8,11 @@ Using ScriptableObjects as enums allows you to:
 * Avoid errors when reordering or changing enum values
 
 ```c#
-public abstract class SO_Enum : FeToScriptableObject {}
+[CreateAssetMenu()]
+public class MySOEnum : FeToScriptableObject
+{
+    // Attributes that every value of the enum will have
+}
 ```
-```c#
-[CreateAssetMenu]
-public class FirstValue : SO_Enum {}
-```
-```c#
-[CreateAssestMenu]
-public class SecondValue : SO_Enum {}
-```
-```c#
-[CreateAssestMenu]
-public class ThirdValue : SO_Enum {}
-```
+
+Now you simply have to create instances of that Scriptable Object and you have your customizable Enum.
