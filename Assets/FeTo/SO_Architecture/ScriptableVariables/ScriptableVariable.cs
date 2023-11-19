@@ -8,16 +8,6 @@ namespace FeTo.SOArchitecture
 #if UNITY_EDITOR
         [Multiline]
         public string DeveloperDescription = "";
-
-        [SerializeField, Tooltip("Should this scriptable act the same way it would in a build?")]
-        public bool resetValue = true;
-        [SerializeField, Tooltip("Value it will reset to every play (if reset is active)")]
-        public T fixedValue;
-
-        private void OnEnable()
-        {
-            if (resetValue) { value = fixedValue; }
-        }
 #endif
 
         [SerializeField]
