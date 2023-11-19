@@ -11,7 +11,7 @@ namespace FeTo.SOArchitecture
 
 #if UNITY_EDITOR
         [SerializeField]
-        private bool _logEvents = false;
+        private bool _logEvents = true;
 #endif
 
         public void Add(T thing)
