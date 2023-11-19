@@ -45,3 +45,8 @@ Extend their basic behavior with scriptable objects.
 
 By using an abstract Scriptable object, and implementing multiple versions of it.  
 We can easily set up an strategy pattern that get's managed in the editor.
+
+## [Flyweight Pattern](/Assets/FeTo/SO_Architecture/FlyweightPattern/)
+
+By moving common config data to scriptable objects we reduce the weight of monobehaviours.  
+This can be achieved through the use of scriptable objects.
