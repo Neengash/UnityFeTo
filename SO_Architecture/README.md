@@ -25,3 +25,8 @@ RuntimeSets is an abstract class that should be inherited.
 ## [GameEvents](/Assets/FeTo/SO_Architecture/GameEvents)
 
 UnityEvents are powerfull, but require coupling. That's why we add the middle layer the GameEvent.
+
+## [Enums](/Assets/FeTo/SO_Architecture/EnumScriptableObject/)
+
+A new way to think about enums. 
+Extend their basic behavior with scriptable objects.
