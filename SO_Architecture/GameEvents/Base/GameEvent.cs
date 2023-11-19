@@ -7,7 +7,7 @@ namespace FeTo.SOArchitecture
 {
     [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/GameEvents#scriptable-object---gameevents")]
     [CreateAssetMenu(fileName = "GameEvent", menuName = "FeTo/SO_Architecture/GameEvent", order = 0)]
-    public class GameEvent : ScriptableObject
+    public class GameEvent : FeToScriptableObject
     {
         /// <summary>
         /// The list of listeners that this event will notify if it is raised.
