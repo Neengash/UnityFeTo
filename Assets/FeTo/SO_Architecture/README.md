@@ -12,6 +12,10 @@ _Keep in mind that in order to use the following classes in your scripts you sho
 using FeTo.SOArchitecture;
 ```
 
+## [FeToScriptableObjects](/Assets/FeTo/SO_Architecture/FetoScriptableObject/)
+
+Extension of the ScriptableObject class to allow - only on editor mode - to revert SO values to their starting value once the play mode ends.
+
 ## Scriptable [Variables](/Assets/FeTo/SO_Architecture/ScriptableVariables) and [References](/Assets/FeTo/SO_Architecture/ScriptableReferences)
 
 Those two utilities: ScriptableVariable and ScriptableReferenes, cover int, float, string and bool types.  
