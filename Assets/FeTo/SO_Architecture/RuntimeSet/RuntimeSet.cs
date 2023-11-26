@@ -5,13 +5,13 @@ using Logger = FeTo.Logging.Logger;
 namespace FeTo.SOArchitecture
 {
     [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/RuntimeSet#runtime-sets")]
-    public abstract class RuntimeSet<T> : ScriptableObject where T : Object
+    public abstract class RuntimeSet<T> : FeToScriptableObject where T : Object
     {
         public List<T> Items = new();
 
 #if UNITY_EDITOR
         [SerializeField]
-        private bool _logEvents = false;
+        private bool _logEvents = true;
 #endif
 
         public void Add(T thing)

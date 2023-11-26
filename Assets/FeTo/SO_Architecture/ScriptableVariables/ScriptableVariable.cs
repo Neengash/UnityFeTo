@@ -3,21 +3,11 @@ using UnityEngine;
 namespace FeTo.SOArchitecture
 {
     [HelpURL("https://github.com/Neengash/UnityFeTo/tree/FeTo/SO_Architecture/ScriptableVariables#scriptable-variables")]
-    public abstract class ScriptableVariable<T> : ScriptableObject
+    public abstract class ScriptableVariable<T> : FeToScriptableObject
     {
 #if UNITY_EDITOR
         [Multiline]
         public string DeveloperDescription = "";
-
-        [SerializeField, Tooltip("Should this scriptable act the same way it would in a build?")]
-        public bool resetValue = true;
-        [SerializeField, Tooltip("Value it will reset to every play (if reset is active)")]
-        public T fixedValue;
-
-        private void OnEnable()
-        {
-            if (resetValue) { value = fixedValue; }
-        }
 #endif
 
         [SerializeField]
