@@ -26,7 +26,6 @@ namespace FeTo.Saving
             var path = GetPathFromSaveFile(saveFile);
             if (!File.Exists(path)) return;
 
-            print($"Save file: {saveFile} deleted");
             File.Delete(path);
         }
 

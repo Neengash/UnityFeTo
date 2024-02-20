@@ -30,7 +30,6 @@ namespace FeTo.Saving
                 var token = saveable.CaptureAsJToken();
                 var component = saveable.GetType().ToString();
                 stateDict[component] = token;
-                print($"{name} Capture {component} = {token}");
             }
 
             return state;
@@ -44,7 +43,6 @@ namespace FeTo.Saving
                 var component = saveable.GetType().ToString();
                 if (stateDict.ContainsKey(component)) {
                     saveable.RestoreFromJToken(stateDict[component]);
-                    print($"{name} Restore {component} =>{stateDict[component]}");
                 }
             }
         }
