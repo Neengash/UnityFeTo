@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FeTo.Saving
 {
-    [CreateAssetMenu(menuName = "Saving Strategies/Json", fileName = "JsonStrategy")]
+    [CreateAssetMenu(menuName = "FeTo Saving Strategies/Json", fileName = "JsonStrategy")]
     public class JsonStrategy : SavingStrategy
     {
         public override string GetExtension() => ".json";
