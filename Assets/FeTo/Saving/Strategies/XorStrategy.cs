@@ -6,14 +6,9 @@ using UnityEngine;
 
 namespace FeTo.Saving
 {
-    [CreateAssetMenu(menuName = "Saving Strategies/Xor", fileName = "XorStrategy")]
+    [CreateAssetMenu(menuName = "FeTo Saving Strategies/Xor", fileName = "XorStrategy")]
     public class XorStrategy : KeySavingStrategy
     {
-        [Tooltip("Use below button to generate a random key. " +
-                 "Once you've set this key, don't touch the field again. " +
-                 "It's as secure as it's going to get, and the key MUST match" +
-                 " with saved file to use the saved file again!")]
-
         [SerializeField] string key = "TwelveTwinsTwirledTwelveTwigs";
 
         public override string GetExtension() => ".xor";
@@ -53,15 +48,6 @@ namespace FeTo.Saving
             }
         }
 
-#if UNITY_EDITOR
-        public override void GenerateKey()
-        {
-            SerializedObject serializedObject = new SerializedObject(this);
-            SerializedProperty property = serializedObject.FindProperty("key");
-            property.stringValue = System.Guid.NewGuid().ToString();
-            serializedObject.ApplyModifiedProperties();
-        }
 
-#endif
     }
 }

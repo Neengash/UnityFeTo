@@ -8,9 +8,6 @@ namespace FeTo.Saving
 {
     public abstract class KeySavingStrategy : SavingStrategy
     {
-#if UNITY_EDITOR
-        public abstract void GenerateKey();
-#endif
     }
 }
 
