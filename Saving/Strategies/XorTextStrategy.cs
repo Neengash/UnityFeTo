@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace FeTo.Saving
 {
-    [CreateAssetMenu(menuName = "FeTo Saving Strategie/XorText", fileName = "XorTextStrategy")]
+    [CreateAssetMenu(menuName = "FeTo/Saving Strategies/XorText", fileName = "XorTextStrategy")]
     public class XorTextStrategy : KeySavingStrategy
     {
         [SerializeField] string key = "TwelveTwinsTwirledTwelveTwigs";

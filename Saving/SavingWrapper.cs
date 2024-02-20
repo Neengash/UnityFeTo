@@ -13,14 +13,15 @@ namespace FeTo.Saving
 
         private void Start() => savingSystem.Load(_defaultSaveFile);
 
-        private void Save() {
+        public void Save() {
             savingSystem.Save(_defaultSaveFile);
         }
 
-        private void Load() {
+        public void Load()
+        {
             savingSystem.Load(_defaultSaveFile);
         }
 
-        private void DeleteSave() => savingSystem.DeleteSaveFile(_defaultSaveFile);
+        public void DeleteSave() => savingSystem.DeleteSaveFile(_defaultSaveFile);
     }
 }
