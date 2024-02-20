@@ -1,3 +1,7 @@
+using Newtonsoft.Json.Linq;
+using UnityEngine;
+using System.Collections.Generic;
+
 namespace FeTo.Saving
 {
     public static class Vector3ExtensionMethods

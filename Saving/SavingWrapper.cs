@@ -1,11 +1,9 @@
 using System.Collections.Generic;
-using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace FeTo.Saving
 {
-    public class EventSavingWrapper : MonoBehaviour
+    public class SavingWrapper : MonoBehaviour
     {
         [SerializeField] SavingSystem savingSystem;
 

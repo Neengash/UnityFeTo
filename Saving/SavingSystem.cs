@@ -41,7 +41,7 @@ namespace FeTo.Saving
         private void CaptureAsToken(JObject state) {
             IDictionary<string, JToken> stateDict = state;
             foreach (var saveable in SavingWrapper.SaveableEntities) {
-                stateDict[saveable.GetUniqueIdentifier()] = saveable.CaptureAsJtoken();
+                stateDict[saveable.GetUniqueIdentifier()] = saveable.CaptureAsJToken();
             }
         }
 

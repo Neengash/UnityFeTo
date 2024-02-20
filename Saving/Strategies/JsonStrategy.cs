@@ -1,3 +1,8 @@
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using UnityEngine;
+
 namespace FeTo.Saving
 {
     [CreateAssetMenu(menuName = "Saving Strategies/Json", fileName = "JsonStrategy")]

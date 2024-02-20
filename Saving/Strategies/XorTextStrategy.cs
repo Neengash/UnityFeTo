@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Text;
-using NaughtyAttributes;
 using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -9,12 +8,12 @@ using UnityEngine;
 namespace FeTo.Saving
 {
     [CreateAssetMenu(menuName = "Saving Strategies/XorText", fileName = "XorTextStrategy")]
-    public class XorTextStrategy : SavingStrategy
+    public class XorTextStrategy : KeySavingStrategy
     {
-        [InfoBox("Use below button to generate a random key. " +
+        [Tooltip("Use below button to generate a random key. " +
                  "Once you've set this key, don't touch the field again. " +
                  "It's as secure as it's going to get, and the key MUST match" +
-                 " a saved file to use the saved file again!", EInfoBoxType.Warning)]
+                 " a saved file to use the saved file again!")]
 
         [SerializeField] string key = "TwelveTwinsTwirledTwelveTwigs";
 
@@ -77,9 +76,7 @@ namespace FeTo.Saving
         }
 
 #if UNITY_EDITOR
-
-        [Button("Generate Key")]
-        private void GenerateKey()
+        public override void GenerateKey()
         {
             SerializedObject serializedObject = new SerializedObject(this);
             SerializedProperty property = serializedObject.FindProperty("key");
