@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NaughtyAttributes;
 using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -11,7 +10,7 @@ namespace FeTo.Saving
     [ExecuteAlways]
     public class SaveableEntity : MonoBehaviour
     {
-        [SerializeField, ReadOnly] string uniqueIdentifier = "";
+        [SerializeField] string uniqueIdentifier = "";
 
         private static Dictionary<string, SaveableEntity> _globalLookup = new();
         private List<ISaveable> saveables = new();
