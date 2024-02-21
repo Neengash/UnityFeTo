@@ -23,7 +23,7 @@ Available strategies are:
 
 ![Generate key button image {caption=Button placed in strategy to generate new key}](/Assets/FeTo/Saving/Media/GenerateKeyButton.png)
 
-If you prefer other ways to sotore the data in a file you can create new strategies inheriting from [SavingStrategy](/Assets/FeTo/Saving/Strategies/SavingStrategy.cs) or [KeySavingStrategy](/Assets/FeTo/Saving/Strategies/KeySavingStrategy.cs). If your strategy use a key to encrypt the data, ensure you also implement the [editor](/Assets/FeTo/Saving/Editor/XorStrategyEditor.cs) in order to generate the key 
+If you prefer other ways to store the data in a file you can create new strategies inheriting from [SavingStrategy](/Assets/FeTo/Saving/Strategies/SavingStrategy.cs) or [KeySavingStrategy](/Assets/FeTo/Saving/Strategies/KeySavingStrategy.cs). If your strategy use a key to encrypt the data, ensure you also implement the [editor](/Assets/FeTo/Saving/Editor/XorStrategyEditor.cs) in order to generate the key from editor
 ### [Saving Wrapper](/Assets/FeTo/Saving/SavingWrapper.cs)
 This file has the public functions to do the opetrations over the file and needs the file name, this file name can be provided in editor
 
