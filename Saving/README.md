@@ -25,7 +25,7 @@ Available strategies are:
 
 If you prefer other ways to store the data in a file you can create new strategies inheriting from [SavingStrategy](/Assets/FeTo/Saving/Strategies/SavingStrategy.cs) or [KeySavingStrategy](/Assets/FeTo/Saving/Strategies/KeySavingStrategy.cs). If your strategy use a key to encrypt the data, ensure you also implement the [editor](/Assets/FeTo/Saving/Editor/XorStrategyEditor.cs) in order to generate the key from editor
 ### [Saving Wrapper](/Assets/FeTo/Saving/SavingWrapper.cs)
-This file has the public functions to do the opetrations over the file and needs the file name, this file name can be provided in editor
+This file has the public functions to do the opetrations over the file and needs the file name, this file name can be provided in editor's inspector
 
 The exposed functions are:
 
@@ -37,7 +37,7 @@ public void DeleteSave()
 ### [Saveable Entity](/Assets/FeTo/Saving/SaveableEntity.cs)
 This script must be added as component to any GameObject which has any data to save. 
 ### [ISaveable](/Assets/FeTo/Saving/ISaveable.cs)
-Include this interface to any script with data to store an then implement both methods in order to save and load data.
+Include this interface to any script with data to store, then implement both methods in order to save and load data.
 
 ``` c#
 JToken CaptureAsJToken();
