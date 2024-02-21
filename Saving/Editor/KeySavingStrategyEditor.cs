@@ -12,10 +12,10 @@ namespace FeTo.Saving
         {
             KeySavingStrategy keySaving = (KeySavingStrategy)target;
             base.OnInspectorGUI();
-            EditorGUILayout.LabelField("Use below button to generate a random key. " +
+            EditorGUILayout.HelpBox("Use below button to generate a random key. " +
                  "Once you've set this key, don't touch the field again. " +
                  "It's as secure as it's going to get, and the key MUST match" +
-                 " with saved file to use the saved file again!");
+                 " with saved file to use the saved file again!", MessageType.Warning);
             if (GUILayout.Button("Generate key"))
             {
                 GenerateKey(keySaving);
