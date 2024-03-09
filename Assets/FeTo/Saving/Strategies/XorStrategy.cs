@@ -29,7 +29,6 @@ namespace FeTo.Saving
 
         public override void SaveToFile(string saveFile, JObject state) {
             var path = GetPathFromSaveFile(saveFile);
-            Debug.Log($"Saving to {path} ");
             using (var textWriter = File.CreateText(path)) {
                 var json = state.ToString();
                 var encoded = EncryptDecrypt(json, key);
