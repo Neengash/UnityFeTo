@@ -35,7 +35,7 @@ The route should be : "https://github.com/Neengash/UnityFeTo.git?path=/Assets/Fe
 
 ### Saving
 
-[Savind Documentation](/Assets/FeTo/Saving)
+[Saving Documentation](/Assets/FeTo/Saving)
 
 # Testing
 
