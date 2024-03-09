@@ -17,9 +17,9 @@ The strategy is the way in which data will be saved in the file. To create a scr
 `Right clic > Create > FeTo > Saving Strategies`
 
 The available strategies are:
-- [Json](/Assets/FeTo/Saving/Strategies/JsonStrategy.cs): just saved as plain text in json format
-- [Json + XOR](/Assets/FeTo/Saving/Strategies/XorStrategy.cs): uses XOR encryption. _**It's needed to press the "Generate Key" button, placed in editor, when scriptable object strategy is selected.**_
-- [Json + XOR + Base64](/Assets/FeTo/Saving/Strategies/XorTextStrategy.cs): use XOR encryption and Base64 encoding. _**It's needed to press the "Generate Key" button, placed in editor, when scriptable object strategy is selected.**_
+- [Json](/Assets/FeTo/Saving/Strategies/JsonStrategy.cs): just saved as plain text in json format, is the least secure but is a good strategy to use in development. It is also is the option which uses least disk space
+- [Json + XOR](/Assets/FeTo/Saving/Strategies/XorStrategy.cs): Add a security layer using XOR encryption. This encryption prevents players from modifiying data but uses more disk space than plain json. _**It's needed to press the "Generate Key" button, placed in editor, when scriptable object strategy is selected.**_
+- [Json + XOR + Base64](/Assets/FeTo/Saving/Strategies/XorTextStrategy.cs): Add an extra layer of security using XOR encryption and Base64 encoding. This strategy also prevents players from modifiying data, but it's the strategy which uses the most disk space- _**It's needed to press the "Generate Key" button, placed in editor, when scriptable object strategy is selected.**_
 
 ![Generate key button image {caption=Button placed in strategy to generate new key}](/Assets/FeTo/Saving/Media/GenerateKeyButton.png)
 
