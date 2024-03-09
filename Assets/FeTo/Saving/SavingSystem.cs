@@ -15,21 +15,24 @@ namespace FeTo.Saving
         public void Save(string saveFile) {
             JObject state = LoadJsonFromFile(saveFile);
             CaptureAsToken(state);
-            SaveFileAsJSon(saveFile, state);
+            SaveFileAsJson(saveFile, state);
         }
 
-        public void Load(string saveFile) {
+        public void Load(string saveFile)
+        {
+            var path = GetPathFromSaveFile(saveFile);
+            Debug.Log(path);
             RestoreFromToken(LoadJsonFromFile(saveFile));
         }
 
         public void DeleteSaveFile(string saveFile) {
             var path = GetPathFromSaveFile(saveFile);
             if (!File.Exists(path)) return;
-
+            
             File.Delete(path);
         }
 
-        private void SaveFileAsJSon(string saveFile, JObject state) {
+        private void SaveFileAsJson(string saveFile, JObject state) {
             strategy.SaveToFile(saveFile, state);
         }
 
