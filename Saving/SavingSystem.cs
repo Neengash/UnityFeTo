@@ -21,7 +21,6 @@ namespace FeTo.Saving
         public void Load(string saveFile)
         {
             var path = GetPathFromSaveFile(saveFile);
-            Debug.Log(path);
             RestoreFromToken(LoadJsonFromFile(saveFile));
         }
 
