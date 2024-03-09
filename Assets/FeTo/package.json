@@ -11,6 +11,9 @@
         "Pattern",
         "FeTo"
     ],
+    "dependencies":{
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+    },
     "author": {
         "name": "Pep 'Neengash' Mañas",
         "email": "pepmanas93@gmail.com",
