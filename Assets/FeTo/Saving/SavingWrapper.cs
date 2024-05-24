@@ -7,6 +7,7 @@ namespace FeTo.Saving
     public class SavingWrapper : MonoBehaviour
     {
         [SerializeField] SavingSystem savingSystem;
+        [Header("Optional fields")]
         [SerializeField] GameEvent saveFinishedEvent;
         [SerializeField] GameEvent loadFinishedEvent;
 
