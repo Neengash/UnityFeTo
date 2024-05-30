@@ -15,11 +15,12 @@ namespace FeTo.Saving
 
         private const string _defaultSaveFile = "save";
 
-        private void Start() => savingSystem.Load(_defaultSaveFile);
+        private void Start() => Load();
 
-        public void Save() {
+        public void Save()
+        {
             savingSystem.Save(_defaultSaveFile);
-            if(saveFinishedEvent)
+            if (saveFinishedEvent)
             {
                 saveFinishedEvent.Raise();
             }
