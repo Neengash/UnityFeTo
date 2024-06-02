@@ -1,7 +1,6 @@
-using System.Collections;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace FeTo.Saving
@@ -12,7 +11,8 @@ namespace FeTo.Saving
         [SerializeField] private SavingStrategy strategy;
 
 
-        public void Save(string saveFile) {
+        public void Save(string saveFile)
+        {
             JObject state = LoadJsonFromFile(saveFile);
             CaptureAsToken(state);
             SaveFileAsJson(saveFile, state);
@@ -24,38 +24,48 @@ namespace FeTo.Saving
             RestoreFromToken(LoadJsonFromFile(saveFile));
         }
 
-        public void DeleteSaveFile(string saveFile) {
+        public void DeleteSaveFile(string saveFile)
+        {
             var path = GetPathFromSaveFile(saveFile);
             if (!File.Exists(path)) return;
-            
+
             File.Delete(path);
         }
 
-        private void SaveFileAsJson(string saveFile, JObject state) {
+        private void SaveFileAsJson(string saveFile, JObject state)
+        {
             strategy.SaveToFile(saveFile, state);
         }
 
-        private JObject LoadJsonFromFile(string saveFile) {
+        private JObject LoadJsonFromFile(string saveFile)
+        {
             return strategy.LoadFromFile(saveFile);
         }
 
-        private void CaptureAsToken(JObject state) {
+        private void CaptureAsToken(JObject state)
+        {
             IDictionary<string, JToken> stateDict = state;
-            foreach (var saveable in SavingWrapper.SaveableEntities) {
+            foreach (var saveable in SavingWrapper.SaveableEntities)
+            {
+                Debug.Log(saveable.GetUniqueIdentifier());
                 stateDict[saveable.GetUniqueIdentifier()] = saveable.CaptureAsJToken();
             }
         }
 
-        private void RestoreFromToken(JObject state) {
+        private void RestoreFromToken(JObject state)
+        {
             IDictionary<string, JToken> stateDict = state;
-            foreach (var saveable in SavingWrapper.SaveableEntities) {
+            foreach (var saveable in SavingWrapper.SaveableEntities)
+            {
+                Debug.Log(saveable.GetUniqueIdentifier());
                 var id = saveable.GetUniqueIdentifier();
                 if (stateDict.ContainsKey(id))
                     saveable.RestoreFromJToken(stateDict[id]);
             }
         }
 
-        private string GetPathFromSaveFile(string saveFile) {
+        private string GetPathFromSaveFile(string saveFile)
+        {
             return strategy.GetPathFromSaveFile(saveFile);
         }
     }
