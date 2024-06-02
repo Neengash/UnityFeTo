@@ -15,6 +15,11 @@ namespace FeTo.Saving
 
         private const string _defaultSaveFile = "save";
 
+        private void Awake()
+        {
+            SaveableEntities = new();
+        }
+
         private void Start() => Load();
 
         public void Save()
