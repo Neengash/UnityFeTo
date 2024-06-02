@@ -11,7 +11,7 @@ namespace FeTo.Saving
         [SerializeField] GameEvent saveFinishedEvent;
         [SerializeField] GameEvent loadFinishedEvent;
 
-        public static List<SaveableEntity> SaveableEntities = new();
+        public static IDictionary<string, SaveableEntity> SaveableEntities = new Dictionary<string, SaveableEntity>();
 
         private const string _defaultSaveFile = "save";
 
